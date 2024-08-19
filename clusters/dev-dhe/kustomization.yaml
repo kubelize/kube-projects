@@ -4,7 +4,7 @@ resources:
   # projects stable
   
   # projects incubator
-  - ../../projects/incubator/webservices/nextcloud/
+  - ../../projects/stable/webservices/nextcloud/
   - ../../projects/incubator/gameservers/web-rcon-dev-dhe/
   - ../../projects/incubator/webservices/wikijs/
   - ../../projects/incubator/gameservers/atm9-itzg/
