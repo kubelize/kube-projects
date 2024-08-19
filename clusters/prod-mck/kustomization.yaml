@@ -17,5 +17,5 @@ patches:
     path: config/values/wikijs/values.yaml
   - target:
       kind: Application
-      name: nextcloud-test
+      name: nextcloud
     path: config/values/nextcloud/values.yaml
