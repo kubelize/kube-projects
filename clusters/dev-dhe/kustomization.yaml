@@ -18,4 +18,4 @@ patches:
   - target:
       kind: Application
       name: nextcloud-test
-    path: config/values/nextcloud-test/values.yaml
+    path: config/values/nextcloud/values.yaml
