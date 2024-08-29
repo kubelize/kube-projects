@@ -9,6 +9,7 @@ resources:
   - ../../projects/incubator/gameservers/web-rcon-prod-mck/
   - ../../projects/incubator/webservices/wikijs/
   - ../../projects/incubator/gameservers/atm9-itzg/
+  - ../../projects/incubator/webservices/jellyfin/
 
 patches:
   - target:
