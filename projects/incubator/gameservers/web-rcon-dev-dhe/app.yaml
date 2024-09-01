@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   sources:
-    - repoURL: https://github.com/kubelize/kube-builder
-      path: apps/projects/incubator/gameservers/web-rcon-dev-dhe/deployment
+    - repoURL: https://github.com/kubelize/kube-projects
+      path: projects/incubator/gameservers/web-rcon-dev-dhe/deployment
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
