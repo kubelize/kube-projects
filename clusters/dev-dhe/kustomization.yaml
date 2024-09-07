@@ -10,6 +10,9 @@ resources:
   - ../../projects/incubator/gameservers/atm9-itzg/
   - ../../projects/incubator/webservices/jellyfin/
 
+  # secrets
+  - ../../secrets/prod-mck/incubator/webservices/wikijs/
+
 patches:
   - target:
       kind: Application
