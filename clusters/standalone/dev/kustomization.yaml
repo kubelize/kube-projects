@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  # projects stable
+  # - ../../../../apps/projects/stable/gameservers/palworld/
+  
+  # projects incubator
+  - ../../../projects/stable/webservices/nextcloud/
+  # - ../../projects/incubator/gameservers/web-rcon-prod-mck/
+  - ../../../projects/incubator/webservices/wikijs/
+  # - ../../projects/incubator/gameservers/atm9-itzg/
+  # - ../../projects/incubator/webservices/jellyfin/
+
+  # secrets
+  # - ../../../secrets/standalone/incubator/webservices/wikijs/
+
+patches:
+  - target:
+      kind: Application
+      name: wikijs
+    path: config/values/wikijs/values.yaml
+  - target:
+      kind: Application
+      name: nextcloud
+    path: config/values/nextcloud/values.yaml

@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: projects
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kubelize/kube-projects
+      path: clusters/standalone/dev
+      targetRevision: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
