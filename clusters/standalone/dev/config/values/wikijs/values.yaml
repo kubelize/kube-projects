@@ -4,7 +4,7 @@ metadata:
   name: wikijs
 spec:
   destination:
-    namespace: kubelize-internal-wiki
+    namespace: internal-wiki
   source:
     helm:
       valuesObject:        
@@ -21,7 +21,7 @@ spec:
 
         imagePullSecrets: []
         nameOverride: ""
-        fullnameOverride: "wikijs"
+        fullnameOverride: "wikijs-test"
 
         serviceAccount:
           # Specifies whether a service account should be created

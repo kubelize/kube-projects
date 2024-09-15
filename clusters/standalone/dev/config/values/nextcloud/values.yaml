@@ -8,6 +8,7 @@ spec:
   source:
     helm:
       valuesObject:
+        fullnameOverride: "nextcloud-test"
         ## Official nextcloud image version
         ## ref: https://hub.docker.com/r/library/nextcloud/tags/
         ##
