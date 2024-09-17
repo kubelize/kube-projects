@@ -7,7 +7,6 @@ resources:
   # projects incubator
   - ../../../projects/stable/webservices/nextcloud-dev/
   # - ../../projects/incubator/gameservers/web-rcon-prod-mck/
-  - ../../../projects/incubator/webservices/wikijs-dev/
   # - ../../projects/incubator/gameservers/atm9-itzg/
   # - ../../projects/incubator/webservices/jellyfin/
 
