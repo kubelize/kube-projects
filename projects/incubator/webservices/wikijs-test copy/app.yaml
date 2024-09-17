@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nextcloud-dev
+  name: wikijs
   namespace: argocd
 spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: nextcloud
+    namespace: internal-wiki
   source:
-    repoURL: https://nextcloud.github.io/helm/
-    targetRevision: 5.0.0
-    chart: nextcloud
+    repoURL: https://charts.js.wiki
+    targetRevision: 2.2.21
+    chart: wiki
     helm:
       valuesObject: {}

@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nextcloud
+  name: nextcloud-dev
 spec:
   destination:
     namespace: nextcloud
   source:
     helm:
       valuesObject:
-        fullnameOverride: "nextcloud-test"
+        fullnameOverride: "nextcloud-dev"
         ## Official nextcloud image version
         ## ref: https://hub.docker.com/r/library/nextcloud/tags/
         ##
@@ -27,7 +27,7 @@ spec:
         ##
         ingress:
           enabled: true
-          className: nginx
+          className: nginx-dhe
           annotations:
            nginx.ingress.kubernetes.io/proxy-body-size: 4G
            kubernetes.io/tls-acme: "true"
@@ -60,7 +60,7 @@ spec:
           tls:
             - secretName: nextcloud-tls
               hosts:
-                - cloud.mckensy.xyz
+                - cloud-test.kubelize.com
           labels: {}
           path: /
           pathType: Prefix
@@ -77,7 +77,7 @@ spec:
           protocol: https
 
         nextcloud:
-          host: cloud.mckensy.xyz
+          host: cloud-test.kubelize.com
           username: admin
           password: initialaccess8227
           ## Use an existing secret
@@ -111,7 +111,7 @@ spec:
           # Will be injected in /usr/local/etc/php/conf.d for apache image and in /usr/local/etc/php-fpm.d when nginx.enabled: true
           phpConfigs:
             overwriteprotocol: 'https'
-            overwrite.cli.url: 'https://cloud.mckensy.xyz/nextcloud'
+            overwrite.cli.url: 'https://cloud-test.kubelize.com/nextcloud'
           # Default config files
           # IMPORTANT: Will be used only if you put extra configs, otherwise default will come from nextcloud itself
           # Default confgurations can be found here: https://github.com/nextcloud/docker/tree/master/16.0/apache/config
