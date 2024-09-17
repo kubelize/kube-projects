@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: nextcloud-test
+  name: nextcloud-dev
   namespace: argocd
 spec:
   project: default
