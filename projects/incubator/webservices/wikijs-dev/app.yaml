@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wikijs-test
+  name: wikijs-dev
   namespace: argocd
 spec:
   project: default
