@@ -1,0 +1,12 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha2
+kind: Terraform
+metadata:
+  name: helloworld-tf
+  namespace: flux-system
+spec:
+  path: 00_base/incubator/helloworld/modules/
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: helloworld
+    namespace: flux-system

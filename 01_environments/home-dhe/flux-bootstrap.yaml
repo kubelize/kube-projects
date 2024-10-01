@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: flux-bootstrap
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kubelize/kube-projects
+      path: clusters/01-environments/home-dhe
+      targetRevision: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: flux-system
