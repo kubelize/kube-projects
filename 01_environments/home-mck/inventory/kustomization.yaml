@@ -4,10 +4,10 @@ resources: []
 # - ./base
 
 # incubator
-# - ../../00_base/operators/incubator/helloworld/
+# - ../../../00_base/operators/incubator/helloworld/
 
 # stable
-# - ../../00_base/operators/stable/nextcloud/
+# - ../../../00_base/operators/stable/nextcloud/
 
 # patches:
 #   - path: ./patches/operators/example/example.yaml
