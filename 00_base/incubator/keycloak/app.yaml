@@ -45,6 +45,7 @@ spec:
           enabled: true
           ingressClassName: "nginx"
           annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
             nginx.ingress.kubernetes.io/proxy-body-size: 750m
             nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
             nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
@@ -53,17 +54,6 @@ spec:
           hostname: "keycloak.kubelize.com"
           tls: true
           secrets: []
-          extraRules:
-            - host: keycloak.kubelize.com
-              http:
-                paths:
-                  - path: /
-                    pathType: Prefix
-                    backend:
-                      service:
-                        name: keycloak
-                        port:
-                          name: http
         metrics:
           enabled: false
         postgresql:
