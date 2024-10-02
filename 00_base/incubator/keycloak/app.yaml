@@ -18,41 +18,16 @@ spec:
     targetRevision: 21.4.6
     chart: keycloak
     helm:
-      parameters: []
       valuesObject:
         replicaCount: 2
-        # priorityClassName: "system-cluster-critical"
         image:
           pullPolicy: IfNotPresent
-        # podLabels:
-          # additional app labels
-        # topologySpreadConstraints:
-        #   - maxSkew: 1
-        #     topologyKey: "topology.kubernetes.io/region"
-        #     whenUnsatisfiable: ScheduleAnyway
-        #     labelSelector:
-        #       matchLabels:
-        #         app.kubernetes.io/component: keycloak
-        #   - maxSkew: 1
-        #     topologyKey: kubernetes.io/hostname
-        #     whenUnsatisfiable: ScheduleAnyway
-        #     labelSelector:
-        #       matchLabels:
-        #         app.kubernetes.io/component: keycloak
         production: true
-        # https://www.keycloak.org/server/reverseproxy
         proxy: "edge"
         auth:
           adminUser: "admin"
           existingSecret: "keycloak-admin-credentials"
           passwordSecretKey: "password"
-        # extraEnvVars:
-        # - name: KC_HEALTH_ENABLED
-        #   value: "true"
-        # - name: "KC_LOG_LEVEL"
-        #   value: "info"
-        # - name: "KC_DB_SCHEMA"
-        #   value: "keycloak"
         podSecurityContext:
           runAsNonRoot: true
           seccompProfile:
@@ -77,29 +52,22 @@ spec:
             nginx.ingress.kubernetes.io/proxy-buffer-size: 20k
           hostname: "keycloak.kubelize.com"
           tls: true
-          secrets:
-            extraRules:
+          secrets: []
+          extraRules:
             - host: keycloak.kubelize.com
-                http:
-                  path: /
-                  backend:
-                    service:
-                      name: keycloak
-                      port:
-                        name: http
+              http:
+                paths:
+                  - path: /
+                    pathType: Prefix
+                    backend:
+                      service:
+                        name: keycloak
+                        port:
+                          name: http
         metrics:
           enabled: false
         postgresql:
           enabled: true
-        # externalDatabase:
-        #   host: "name"
-        #   port: "port"
-        #   user: "user"
-        #   database: "keycloak"
-        #   existingSecret: "keycloak-database-credentials"
-        #   existingSecretPasswordKey: "postgres-password"
-        # The addition of resources is necessary due to the default value "resourcePreset: small" in chart version 20.x.x
-        # See https://github.com/bitnami/charts/blob/main/bitnami/keycloak/values.yaml
         resources:
           limits:
             cpu: 2
