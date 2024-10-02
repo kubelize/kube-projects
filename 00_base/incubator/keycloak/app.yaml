@@ -1,0 +1,99 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keycloak
+  namespace: argocd
+  labels:
+    name: keycloak
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: keycloak
+  syncPolicy:
+    automated:
+      prune: false
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    targetRevision: 21.4.6
+    chart: keycloak
+    helm:
+      parameters: []
+      valuesObject:
+        replicaCount: 2
+        # priorityClassName: "system-cluster-critical"
+        image:
+          pullPolicy: IfNotPresent
+        # podLabels:
+          # additional app labels
+        # topologySpreadConstraints:
+        #   - maxSkew: 1
+        #     topologyKey: "topology.kubernetes.io/region"
+        #     whenUnsatisfiable: ScheduleAnyway
+        #     labelSelector:
+        #       matchLabels:
+        #         app.kubernetes.io/component: keycloak
+        #   - maxSkew: 1
+        #     topologyKey: kubernetes.io/hostname
+        #     whenUnsatisfiable: ScheduleAnyway
+        #     labelSelector:
+        #       matchLabels:
+        #         app.kubernetes.io/component: keycloak
+        production: true
+        # https://www.keycloak.org/server/reverseproxy
+        proxy: "edge"
+        auth:
+          adminUser: "admin"
+          existingSecret: "keycloak-admin-credentials"
+          passwordSecretKey: "password"
+        # extraEnvVars:
+        # - name: KC_HEALTH_ENABLED
+        #   value: "true"
+        # - name: "KC_LOG_LEVEL"
+        #   value: "info"
+        # - name: "KC_DB_SCHEMA"
+        #   value: "keycloak"
+        podSecurityContext:
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+        containerSecurityContext:
+          readOnlyRootFilesystem: false
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
+        pdb:
+          create: true
+          minAvailable: 1
+        ingress:
+          enabled: true
+          ingressClassName: "ci-saas"
+          annotations:
+            nginx.ingress.kubernetes.io/proxy-body-size: 750m
+            nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+            nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+            nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+            nginx.ingress.kubernetes.io/proxy-buffer-size: 20k
+          hostname: "keycloak.kubelize.com"
+          tls: true
+        metrics:
+          enabled: false
+        postgresql:
+          enabled: true
+        # externalDatabase:
+        #   host: "name"
+        #   port: "port"
+        #   user: "user"
+        #   database: "keycloak"
+        #   existingSecret: "keycloak-database-credentials"
+        #   existingSecretPasswordKey: "postgres-password"
+        # The addition of resources is necessary due to the default value "resourcePreset: small" in chart version 20.x.x
+        # See https://github.com/bitnami/charts/blob/main/bitnami/keycloak/values.yaml
+        resources:
+          limits:
+            cpu: 2
+            memory: 1Gi
+          requests:
+            cpu: 1
+            memory: 512Mi
