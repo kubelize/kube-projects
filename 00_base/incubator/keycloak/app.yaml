@@ -68,7 +68,7 @@ spec:
           minAvailable: 1
         ingress:
           enabled: true
-          ingressClassName: "ci-saas"
+          ingressClassName: "nginx"
           annotations:
             nginx.ingress.kubernetes.io/proxy-body-size: 750m
             nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"

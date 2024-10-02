@@ -1,0 +1,10 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: keycloak
+  namespace: flux-reserved
+spec:
+  interval: 30s
+  url: https://github.com/kubelize/kube-projects
+  ref:
+    branch: dev

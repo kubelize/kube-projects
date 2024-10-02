@@ -10,4 +10,4 @@ spec:
   sourceRef:
     kind: GitRepository
     name: helloworld
-    namespace: flux-system
+    namespace: flux-reserved

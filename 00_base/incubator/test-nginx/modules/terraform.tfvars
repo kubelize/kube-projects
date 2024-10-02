@@ -1,1 +1,0 @@
-host = "https://kubernetes.default.svc"
