@@ -5,6 +5,7 @@ resources:
 
 # incubator
 # - ../../../00_base/incubator/helloworld/
+- ../../../00_base/incubator/test-nginx/
 
 # stable
 # - ../../../00_base/stable/nextcloud/

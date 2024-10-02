@@ -1,0 +1,13 @@
+apiVersion: infra.contrib.fluxcd.io/v1alpha2
+kind: Terraform
+metadata:
+  name: test-nginx
+  namespace: test-nginx
+spec:
+  path: 00_base/incubator/test-nginx/modules/
+  interval: 1m
+  approvePlan: auto
+  sourceRef:
+    kind: GitRepository
+    name: test-nginx
+    namespace: flux-reserved
