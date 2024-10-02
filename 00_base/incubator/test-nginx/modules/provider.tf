@@ -6,9 +6,9 @@ terraform {
   }
 }
 
-# variable "host" {
-#   type = string
-# }
+variable "host" {
+  type = string
+}
 
 # variable "client_certificate" {
 #   type = string
