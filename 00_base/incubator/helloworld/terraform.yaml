@@ -6,7 +6,7 @@ metadata:
 spec:
   path: 00_base/incubator/helloworld/modules/
   interval: 1m
-  autoApprove: true
+  approvePlan: auto
   sourceRef:
     kind: GitRepository
     name: helloworld
