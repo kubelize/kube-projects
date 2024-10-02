@@ -4,7 +4,7 @@ resources:
 - ./base
 
 # incubator
-- ../../../00_base/incubator/helloworld/
+# - ../../../00_base/incubator/helloworld/
 
 # stable
 # - ../../../00_base/stable/nextcloud/
