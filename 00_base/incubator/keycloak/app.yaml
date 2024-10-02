@@ -78,9 +78,6 @@ spec:
           hostname: "keycloak.kubelize.com"
           tls: true
           secrets:
-          ## @param ingress.extraRules Additional rules to be covered with this ingress record
-          ## ref: https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-rules
-          ## e.g:
             extraRules:
             - host: keycloak.kubelize.com
                 http:
