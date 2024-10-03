@@ -22,7 +22,7 @@ spec:
         replicaCount: 2
         image:
           pullPolicy: IfNotPresent
-        production: true
+        production: false
         proxy: "edge"
         auth:
           adminUser: "identity-orchestrator"
