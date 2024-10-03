@@ -61,7 +61,7 @@ spec:
           auth:
             username: bn_keycloak
             database: bitnami_keycloak
-            existingSecret: ""
+            existingSecret: "keycloak-database-credentials"
             secretKeys:
               userPasswordKey: password
         resources:
