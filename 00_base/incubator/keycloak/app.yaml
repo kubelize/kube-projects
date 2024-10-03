@@ -63,7 +63,7 @@ spec:
             database: bitnami_keycloak
             existingSecret: "keycloak-database-credentials"
             secretKeys:
-              userPasswordKey: postgres-password
+              userPasswordKey: password
         resources:
           limits:
             cpu: 2
