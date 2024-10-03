@@ -25,7 +25,7 @@ spec:
         production: true
         proxy: "edge"
         auth:
-          adminUser: "admin"
+          adminUser: "identity-orchestrator"
           existingSecret: "keycloak-admin-credentials"
           passwordSecretKey: "password"
         podSecurityContext:
