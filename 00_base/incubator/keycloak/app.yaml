@@ -58,6 +58,12 @@ spec:
           enabled: false
         postgresql:
           enabled: true
+          auth:
+            username: bn_keycloak
+            database: bitnami_keycloak
+            existingSecret: ""
+            secretKeys:
+              userPasswordKey: password
         resources:
           limits:
             cpu: 2

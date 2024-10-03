@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - app.yaml
 - keycloak-admin-credentials.yaml
+- keycloak-database-credentials.yaml
 - namespace.yaml
 # - repository.yaml
 # - terraform.yaml
