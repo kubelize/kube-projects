@@ -1,36 +1,24 @@
-resource "keycloak_realm" "kubelize" {
-  realm   = "kubelize"
-  enabled = true
-}
+provider "kubernetes" {}
 
-resource "keycloak_role" "realm_role" {
-  realm_id = keycloak_realm.my_realm.id
-  name     = "admin"
-}
-
-resource "keycloak_group" "developers" {
-  realm_id = keycloak_realm.my_realm.id
-  name     = "developers"
-}
-
-resource "keycloak_group_roles" "group_roles" {
-  realm_id   = keycloak_realm.my_realm.id
-  group_id   = keycloak_group.developers.id
-  role_ids   = [keycloak_role.realm_role.id]
-}
-
-resource "keycloak_user" "user" {
-  realm_id    = keycloak_realm.my_realm.id
-  username    = "john.doe"
-  enabled     = true
-  initial_password {
-    value     = "password"
-    temporary = false
+# Fetch the secret from Kubernetes
+data "kubernetes_secret" "keycloak_credentials" {
+  metadata {
+    name      = "keycloak-admin-credentials"
+    namespace = "keycloak"
   }
 }
 
-resource "keycloak_user_group_memberships" "user_group" {
-  realm_id = keycloak_realm.my_realm.id
-  user_id  = keycloak_user.user.id
-  group_ids = [keycloak_group.developers.id]
+# Decode the password from the secret
+locals {
+  decoded_password = base64decode(data.kubernetes_secret.keycloak_credentials.data["password"])
+}
+
+# Echo messages and the secret value
+resource "null_resource" "print_secret_info" {
+  provisioner "local-exec" {
+    command = <<EOT
+      echo "Collecting data from secret..."
+      echo "Admin Password is: ${local.decoded_password}"
+    EOT
+  }
 }
