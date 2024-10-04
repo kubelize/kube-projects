@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 1.3.9"
+}
+
 provider "kubernetes" {}
 
 # Fetch the secret from Kubernetes
