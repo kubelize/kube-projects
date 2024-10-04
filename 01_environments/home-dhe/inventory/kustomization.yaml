@@ -4,8 +4,8 @@ resources:
 - ./base
 
 # incubator
-# - ../../../00_base/incubator/helloworld/
-- ../../../00_base/incubator/keycloak/
+- ../../../00_base/incubator/helloworld/
+# - ../../../00_base/incubator/keycloak/
 
 # stable
 # - ../../../00_base/stable/nextcloud/
