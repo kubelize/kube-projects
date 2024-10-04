@@ -2,7 +2,7 @@ apiVersion: infra.contrib.fluxcd.io/v1alpha2
 kind: Terraform
 metadata:
   name: keycloak
-  namespace: flux-reserved
+  namespace: flux-system
 spec:
   path: 00_base/incubator/keycloak/modules/
   interval: 1m
@@ -10,4 +10,4 @@ spec:
   sourceRef:
     kind: GitRepository
     name: keycloak
-    namespace: flux-reserved
+    namespace: flux-system
