@@ -1,5 +1,5 @@
-resource "keycloak_realm" "my_realm" {
-  realm   = "myrealm"
+resource "keycloak_realm" "kubelize" {
+  realm   = "kubelize"
   enabled = true
 }
 

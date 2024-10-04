@@ -8,10 +8,10 @@ data "kubernetes_secret" "keycloak_credentials" {
 }
 
 provider "keycloak" {
-  client_id = base64decode(data.kubernetes_secret.keycloak_credentials.data["client_id"])
+  client_id = cli-admin
   username  = admin
   password  = base64decode(data.kubernetes_secret.keycloak_credentials.data["password"])
-  url       = "http://keycloak"
+  url       = "http://keycloak.keycloak.svc.cluster.local:80"
   realm     = "master"
 }
 
