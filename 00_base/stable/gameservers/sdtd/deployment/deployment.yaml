@@ -41,7 +41,7 @@ spec:
               protocol: TCP
               name: telnet
           volumeMounts:
-            - mountPath: /home/steam/steamcmd/sdtd/
+            - mountPath: /home/steam/sdtd/
               name: sdtdserver-data
           securityContext:
             runAsUser: 1000
