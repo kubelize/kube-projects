@@ -18,7 +18,7 @@ spec:
           command: ["sh", "-c", "mkdir /home/steam/sdtd && chown -R 1000:1000 /home/steam/Steam"]
       containers:
         - name: sdtd-server
-          image: kubelize/sdtd-server:0.1.0
+          image: kubelize/sdtd-server:0.1.1
           # command: ["/usr/bin/sleep", "infinity"]
           imagePullPolicy: IfNotPresent
           ports:
