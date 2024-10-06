@@ -12,13 +12,13 @@ spec:
       labels:
         app: sdtd-server
     spec:
-      # initContainers:
-      #   - name: init-permissions
-      #     image: busybox
-      #     command: ["sh", "-c", "mkdir /home/steam/Steam && chown -R 1000:1000 /home/steam/Steam"]
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "mkdir /home/steam/sdtd && chown -R 1000:1000 /home/steam/Steam"]
       containers:
         - name: sdtd-server
-          image: kubelize/sdtd-server:0.0.4
+          image: kubelize/sdtd-server:0.1.0
           # command: ["/usr/bin/sleep", "infinity"]
           imagePullPolicy: IfNotPresent
           ports:
@@ -41,7 +41,7 @@ spec:
               protocol: TCP
               name: telnet
           volumeMounts:
-            - mountPath: /home/steam/steamcmd/sdtd/
+            - mountPath: /home/steam/Steam/
               name: sdtdserver-data
           securityContext:
             runAsUser: 1000
