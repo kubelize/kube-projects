@@ -9,7 +9,6 @@ resources:
 
 # stable
 # - ../../../00_base/stable/nextcloud/
-- ../../../00_base/stable/gameservers/sdtd/
 
 # patches:
 #   - path: ./patches/example/example.yaml
