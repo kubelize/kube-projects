@@ -36,7 +36,7 @@ data "kubernetes_secret" "keycloak_admin_secret" {
 
 # Decode the base64-encoded values
 locals {
-  keycloak_admin_password = base64decode(data.kubernetes_secret.keycloak_admin_secret.data["password"])
+  keycloak_admin_password = base64decode(data.kubernetes_secret.keycloak-admin-credentials.data["password"])
 }
 
 # Keycloak realm resource example
