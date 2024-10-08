@@ -14,60 +14,63 @@ spec:
     automated:
       prune: false
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 21.4.6
-    chart: keycloak
-    helm:
-      valuesObject:
-        replicaCount: 2
-        image:
-          pullPolicy: IfNotPresent
-        production: true
-        proxy: "edge"
-        auth:
-          adminUser: "identity-orchestrator"
-          existingSecret: "keycloak-admin-credentials"
-          passwordSecretKey: "password"
-        podSecurityContext:
-          runAsNonRoot: true
-          seccompProfile:
-            type: RuntimeDefault
-        containerSecurityContext:
-          readOnlyRootFilesystem: false
-          allowPrivilegeEscalation: false
-          capabilities:
-            drop:
-              - ALL
-        pdb:
-          create: true
-          minAvailable: 1
-        ingress:
-          enabled: true
-          ingressClassName: "nginx"
-          annotations:
-            cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
-            nginx.ingress.kubernetes.io/proxy-body-size: 750m
-            nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
-            nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
-            nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
-            nginx.ingress.kubernetes.io/proxy-buffer-size: 20k
-          hostname: "keycloak.kubelize.com"
-          tls: true
-          secrets: []
-        metrics:
-          enabled: false
-        postgresql:
-          enabled: true
+    - repoURL: https://github.com/kubelize/kube-projects
+      targetRevision: dev
+      path: 01_environments/00_base/incubator/keycloak/deploy
+    - repoURL: https://charts.bitnami.com/bitnami
+      targetRevision: 21.4.6
+      chart: keycloak
+      helm:
+        valuesObject:
+          replicaCount: 2
+          image:
+            pullPolicy: IfNotPresent
+          production: true
+          proxy: "edge"
           auth:
-            username: bn_keycloak
-            database: bitnami_keycloak
-            existingSecret: "keycloak-database-credentials"
-            secretKeys:
-              userPasswordKey: password
-        resources:
-          limits:
-            cpu: 2
-            memory: 1Gi
-          requests:
-            cpu: 1
-            memory: 512Mi
+            adminUser: "identity-orchestrator"
+            existingSecret: "keycloak-admin-credentials"
+            passwordSecretKey: "password"
+          podSecurityContext:
+            runAsNonRoot: true
+            seccompProfile:
+              type: RuntimeDefault
+          containerSecurityContext:
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          pdb:
+            create: true
+            minAvailable: 1
+          ingress:
+            enabled: true
+            ingressClassName: "nginx"
+            annotations:
+              cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
+              nginx.ingress.kubernetes.io/proxy-body-size: 750m
+              nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+              nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+              nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+              nginx.ingress.kubernetes.io/proxy-buffer-size: 20k
+            hostname: "keycloak.kubelize.com"
+            tls: true
+            secrets: []
+          metrics:
+            enabled: false
+          postgresql:
+            enabled: true
+            auth:
+              username: bn_keycloak
+              database: bitnami_keycloak
+              existingSecret: "keycloak-database-credentials"
+              secretKeys:
+                userPasswordKey: password
+          resources:
+            limits:
+              cpu: 2
+              memory: 1Gi
+            requests:
+              cpu: 1
+              memory: 512Mi
