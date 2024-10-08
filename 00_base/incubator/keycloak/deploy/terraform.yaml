@@ -5,7 +5,8 @@ metadata:
   namespace: flux-system
 spec:
   path: 00_base/incubator/keycloak/modules/
-  interval: 1m
+  interval: 1h0m0s
+  retryInterval: 0h30m0s
   approvePlan: auto
   sourceRef:
     kind: GitRepository
