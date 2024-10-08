@@ -13,7 +13,7 @@ spec:
   syncPolicy:
     automated:
       prune: false
-  source:
+  sources:
     - repoURL: https://github.com/kubelize/kube-projects
       targetRevision: dev
       path: 01_environments/00_base/incubator/keycloak/deploy
