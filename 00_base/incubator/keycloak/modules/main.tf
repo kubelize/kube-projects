@@ -20,7 +20,7 @@ provider "kubernetes" {}
 # Keycloak provider
 provider "keycloak" {
   client_id = "admin-cli"
-  url       = "https://keycloak.kubelize.com/auth"
+  url       = "http://keycloak.keycloak.svc.cluster.local/auth"
   username  = "admin"
   password  = local.keycloak_admin_password
   realm     = "master"
