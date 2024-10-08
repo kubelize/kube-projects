@@ -1,28 +1,52 @@
+# Specify Terraform version and required providers
 terraform {
   required_version = ">= 1.3.9"
+
+  required_providers {
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 2.11.0"  # Or specify the version you're comfortable with
+    }
+    keycloak = {
+      source  = "mrparkers/keycloak"
+      version = ">= 4.4.0"  # Adjust as needed
+    }
+  }
 }
 
+# Kubernetes provider - automatically uses in-cluster config
 provider "kubernetes" {}
 
-# Fetch the secret from Kubernetes
-data "kubernetes_secret" "keycloak_credentials" {
+# Keycloak provider
+provider "keycloak" {
+  client_id = "admin-cli"
+  url       = "https://keycloak.kubelize.com/auth"
+  username  = "admin"
+  password  = local.keycloak_admin_password
+  realm     = "master"
+}
+
+# Fetch the Keycloak admin credentials from the Kubernetes secret
+data "kubernetes_secret" "keycloak_admin_secret" {
   metadata {
     name      = "keycloak-admin-credentials"
-    namespace = "keycloak"
+    namespace = "keycloak"  # Same namespace as the secret
   }
 }
 
-# Decode the password from the secret
+# Decode the base64-encoded values
 locals {
-  decoded_password = base64decode(data.kubernetes_secret.keycloak_credentials.data["password"])
+  keycloak_admin_password = base64decode(data.kubernetes_secret.keycloak_admin_secret.data["password"])
 }
 
-# Echo messages and the secret value
-resource "null_resource" "print_secret_info" {
-  provisioner "local-exec" {
-    command = <<EOT
-      echo "Collecting data from secret..."
-      echo "Admin Password is: ${local.decoded_password}"
-    EOT
-  }
+# Keycloak realm resource example
+resource "keycloak_realm" "test" {
+  realm   = "test"
+  enabled = true
 }
+
+# Output realm id for visibility
+output "keycloak_realm_id" {
+  value = keycloak_realm.test.id
+}
+

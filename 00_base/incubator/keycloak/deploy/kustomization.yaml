@@ -4,5 +4,7 @@ resources:
 - keycloak-admin-credentials.yaml
 - keycloak-database-credentials.yaml
 - namespace.yaml
-# - repository.yaml
-# - terraform.yaml
+- role.yaml
+- rolebinding.yaml
+- repository.yaml
+- terraform.yaml
