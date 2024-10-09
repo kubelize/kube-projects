@@ -15,7 +15,10 @@ spec:
       initContainers:
         - name: init-permissions
           image: busybox
-          command: ["sh", "-c", "chown -R 1000:1000 /home/steam"]
+          command: ["sh", "-c", "mkdir -p /home/steam && chown -R 1000:1000 /home/steam"]
+          volumeMounts:
+            - mountPath: /home/steam
+              name: sdtdserver-data
       containers:
         - name: sdtd-server
           image: kubelize/sdtd-server:0.1.1
