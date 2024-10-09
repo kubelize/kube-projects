@@ -19,6 +19,10 @@ spec:
       name: gameport2udp
       port: 26901
       targetPort: 26901
+    - protocol: UDP
+      name: gameport3udp
+      port: 26902
+      targetPort: 26902
     - protocol: TCP
       name: webadmin
       port: 8080
