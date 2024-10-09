@@ -1,14 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ./base
+  - ./base
 
-# incubator
-# - ../../../00_base/incubator/helloworld/
-- ../../../00_base/incubator/keycloak/
+  # incubator
+  # - ../../../00_base/incubator/helloworld/
+  - ../../../00_base/incubator/keycloak/
 
-# stable
-# - ../../../00_base/stable/nextcloud/
+  # stable
+  # - ../../../00_base/stable/nextcloud/
+  - ../../../00_base/stable/gameservers/sdtd/
 
-# patches:
-#   - path: ./patches/example/example.yaml
+  # patches:
+  #   - path: ./patches/example/example.yaml
