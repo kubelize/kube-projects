@@ -17,8 +17,10 @@ spec:
           image: busybox
           command: ["sh", "-c", "mkdir -p /home/steam && chown -R 1000:1000 /home/steam"]
           volumeMounts:
-            - mountPath: /home/steam
+            - mountPath: /home/steam/steamcmd
               name: sdtdserver-data
+            - mountPath: /home/steam/.local/share/7DaysToDie
+              name: sdtdserver-save
       containers:
         - name: sdtd-server
           image: kubelize/sdtd-server:0.1.2
@@ -51,8 +53,10 @@ spec:
               protocol: TCP
               name: telnet
           volumeMounts:
-            - mountPath: /home/steam
+            - mountPath: /home/steam/steamcmd
               name: sdtdserver-data
+            - mountPath: /home/steam/.local/share/7DaysToDie
+              name: sdtdserver-save
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
@@ -60,6 +64,9 @@ spec:
         - name: sdtdserver-data
           persistentVolumeClaim:
             claimName: sdtdserver-data
+        - name: sdtdserver-save
+          persistentVolumeClaim:
+            claimName: sdtdserver-save
   replicas: 1
   selector:
     matchLabels:

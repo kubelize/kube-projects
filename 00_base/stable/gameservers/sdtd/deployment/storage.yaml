@@ -9,4 +9,17 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
+      storage: 20Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sdtdserver-save
+  namespace: sdtd-server
+spec:
+  storageClassName: longhorn
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
       storage: 40Gi
