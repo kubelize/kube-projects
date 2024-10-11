@@ -17,9 +17,9 @@ spec:
           image: busybox
           command: ["sh", "-c", "mkdir -p /home/steam && chown -R 1000:1000 /home/steam"]
           volumeMounts:
-            - mountPath: /home/steam/steamcmd
+            - mountPath: /home/steam/sdtd
               name: sdtdserver-data
-            - mountPath: /home/steam/.local/share/7DaysToDie
+            - mountPath: /home/steam/.local
               name: sdtdserver-save
       containers:
         - name: sdtd-server
