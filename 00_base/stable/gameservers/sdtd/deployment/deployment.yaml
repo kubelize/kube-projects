@@ -19,7 +19,7 @@ spec:
           volumeMounts:
             - mountPath: /home/steam/sdtd
               name: sdtdserver-data
-            - mountPath: /home/steam/.local
+            - mountPath: /home/steam/.local/share/7DaysToDie
               name: sdtdserver-save
       containers:
         - name: sdtd-server
@@ -53,7 +53,7 @@ spec:
               protocol: TCP
               name: telnet
           volumeMounts:
-            - mountPath: /home/steam/steamcmd
+            - mountPath: /home/steam/sdtd
               name: sdtdserver-data
             - mountPath: /home/steam/.local/share/7DaysToDie
               name: sdtdserver-save
