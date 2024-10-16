@@ -18,7 +18,7 @@ spec:
       targetRevision: dev
       path: 00_base/incubator/keycloak/deploy
     - repoURL: https://charts.bitnami.com/bitnami
-      targetRevision: 25.0.6
+      targetRevision: 24.0.0
       chart: keycloak
       helm:
         valuesObject:
