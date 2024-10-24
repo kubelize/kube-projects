@@ -21,7 +21,7 @@ spec:
               name: ce-server-data
       containers:
         - name: ce-server
-          image: kubelize/ce-server:0.0.1
+          image: kubelize/ce-server:0.0.2
           # command: ["/usr/bin/sleep", "infinity"]
           imagePullPolicy: IfNotPresent
           resources:
