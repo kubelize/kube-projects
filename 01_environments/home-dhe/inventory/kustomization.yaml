@@ -5,11 +5,11 @@ resources:
 
   # incubator
   # - ../../../00_base/incubator/helloworld/
-  - ../../../00_base/incubator/keycloak/
+  # - ../../../00_base/incubator/keycloak/
 
   # stable
   # - ../../../00_base/stable/nextcloud/
-  - ../../../00_base/stable/gameservers/sdtd/
+  # - ../../../00_base/stable/gameservers/sdtd/
   - ../../../00_base/stable/gameservers/conan-exiles/
 
   # patches:
