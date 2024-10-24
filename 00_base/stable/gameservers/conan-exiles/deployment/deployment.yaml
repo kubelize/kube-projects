@@ -38,6 +38,15 @@ spec:
             - containerPort: 7777
               protocol: UDP
               name: gameport1udp
+            - containerPort: 7778
+              protocol: UDP
+              name: gameport2udp
+            - containerPort: 27015
+              protocol: UDP
+              name: queryport
+            - containerPort: 25575
+              protocol: TCP
+              name: rconport
           volumeMounts:
             - mountPath: /home/steam/ce-server
               name: ce-server-data

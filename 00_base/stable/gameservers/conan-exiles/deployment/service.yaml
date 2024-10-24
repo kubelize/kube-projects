@@ -15,4 +15,13 @@ spec:
       name: gameport1udp
       port: 7777
       targetPort: 7777
+    - protocol: UDP
+      name: gameport2udp
+      port: 7778
+    - protocol: UDP
+      name: queryport
+      port: 27015
+    - protocol: TCP
+      name: rconport
+      port: 25575
   type: LoadBalancer
