@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ce-server
+  labels:
+    app: ce-server
+  namespace: ce-server
+spec:
+  template:
+    metadata:
+      name: ce-server
+      labels:
+        app: ce-server
+    spec:
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "mkdir -p /home/steam && chown -R 1000:1000 /home/steam"]
+          volumeMounts:
+            - mountPath: /home/steam/ce-server
+              name: ce-server-data
+      containers:
+        - name: ce-server
+          image: kubelize/ce-server:0.0.1
+          # command: ["/usr/bin/sleep", "infinity"]
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              memory: "6Gi"
+              cpu: "2"
+            limits:
+              memory: "8Gi"
+              cpu: "4"
+          ports:
+            - containerPort: 7777
+              protocol: TCP
+              name: gameport1tcp
+            - containerPort: 7777
+              protocol: UDP
+              name: gameport1udp
+          volumeMounts:
+            - mountPath: /home/steam/ce-server
+              name: ce-server-data
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+      volumes:
+        - name: ce-server-data
+          persistentVolumeClaim:
+            claimName: ce-server-data
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ce-server
