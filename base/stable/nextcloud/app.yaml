@@ -27,8 +27,8 @@ spec:
         valuesObject:
           image:
             flavour: fpm
-            repository: kubelize/nextcloud
-            tag: 0.1.2
+            repository: nextcloud
+            tag: 30.0.4-fpm-alpine
           podLabels:
             cronjob: nextcloud
           phpClientHttpsFix:
