@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: assistant-background-worker
+  name: nextcloud-assistant
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: assistant-background-worker
+      app: nextcloud-assistant
   template:
     metadata:
       labels:
-        app: assistant-background-worker
+        app: nextcloud-assistant
     spec:
       affinity:
         podAffinity:
