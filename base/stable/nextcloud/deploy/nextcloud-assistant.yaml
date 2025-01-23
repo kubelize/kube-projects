@@ -43,19 +43,19 @@ spec:
             - mountPath: /var/www/html/
               name: nextcloud-main
               subPath: html
-          #   - mountPath: /var/www/html/config
-          #     name: nextcloud-main
-          #     subPath: config
-          #   - mountPath: /var/www/html/custom_apps
-          #     name: nextcloud-main
-          #     subPath: custom_apps
-          #   - mountPath: /var/www/html/data
-          #     name: nextcloud-main
-          #     subPath: data
+            - mountPath: /var/www/html/config
+              name: nextcloud-main
+              subPath: config
+            - mountPath: /var/www/html/custom_apps
+              name: nextcloud-main
+              subPath: custom_apps
+            - mountPath: /var/www/html/data
+              name: nextcloud-main
+              subPath: data
           #   - mountPath: /var/www/html/themes
           #     name: nextcloud-main
-          #     subPath: themes
-          #   - mountPath: /var/www/html/tmp
-          #     name: nextcloud-main
-          #     subPath: tmp
+            #   subPath: themes
+            - mountPath: /var/www/html/tmp
+              name: nextcloud-main
+              subPath: tmp
       restartPolicy: Always
