@@ -52,6 +52,9 @@ spec:
             - mountPath: /var/www/html/data
               name: nextcloud-main
               subPath: data
+            - mountPath: /var/www/html/themes
+              name: nextcloud-main
+              subPath: themes
             - mountPath: /var/www/html/tmp
               name: nextcloud-main
               subPath: tmp
