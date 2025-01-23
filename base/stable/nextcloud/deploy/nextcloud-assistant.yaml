@@ -27,6 +27,16 @@ spec:
         - name: nextcloud-main
           persistentVolumeClaim:
             claimName: nextcloud-nextcloud
+      initContainers:
+      - name: wait-for-service
+        image: alpine/curl
+        command:
+          - sh
+          - -c
+          - >-
+            until curl -sf http://drive.kubelize.com/status.php;
+            do echo waiting for service; sleep 5;
+            done
       containers:
         - name: nextcloud-cron
           image: nextcloud:30.0.4-fpm-alpine
