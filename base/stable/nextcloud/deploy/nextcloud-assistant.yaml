@@ -23,10 +23,10 @@ spec:
         runAsUser: 82
         fsGroup: 82
         runAsNonRoot: true
-      # volumes:
-      #   - name: nextcloud-main
-      #     persistentVolumeClaim:
-      #       claimName: nextcloud-nextcloud
+      volumes:
+        - name: nextcloud-main
+          persistentVolumeClaim:
+            claimName: nextcloud-nextcloud
       containers:
         - name: nextcloud-cron
           image: nextcloud:30.0.4-fpm-alpine
@@ -36,10 +36,10 @@ spec:
             - "-c"
             - |-
               set -e; while true; do php occ background-job:worker -v -t 60 "OC\TaskProcessing\SynchronousBackgroundJob"; done
-          # volumeMounts:
-          #   - mountPath: /var/www/
-          #     name: nextcloud-main
-          #     subPath: root
+          volumeMounts:
+            - mountPath: /var/www/
+              name: nextcloud-main
+              subPath: root
           #   - mountPath: /var/www/html/
           #     name: nextcloud-main
           #     subPath: html
