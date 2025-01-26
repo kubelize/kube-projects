@@ -6,7 +6,7 @@ resources:
 - ../../../base/incubator/pihole/
 
 # stable
-- ../../../base/stable/nextcloud/
+#- ../../../base/stable/nextcloud/
 - ../../../base/stable/gameservers/minecraft/vanilla/
 - ../../../base/stable/gameservers/minecraft/rlcraft/
 - ../../../base/stable/gameservers/web-rcon/
@@ -28,7 +28,7 @@ patches:
     target:
       kind: Application
       name: rlcraft-minecraft
-  - path: ./patches/nextcloud-values.yaml
-    target:
-      kind: Application
-      name: nextcloud
+#  - path: ./patches/nextcloud-values.yaml
+#    target:
+#      kind: Application
+#      name: nextcloud
