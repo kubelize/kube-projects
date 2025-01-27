@@ -12,4 +12,5 @@ data:
     # php /var/www/html/occ app:install deck
     # php /var/www/html/occ app:install side_menu
     php /var/www/html/occ app:install contacts
+    php /var/www/html/occ app:install talk
     echo "Nextcloud apps installation complete."
