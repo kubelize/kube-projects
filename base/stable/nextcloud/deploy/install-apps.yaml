@@ -6,12 +6,14 @@ data:
   install-apps.sh: |
     #!/bin/sh
     echo "Installing Nextcloud apps..."
-    # php /var/www/html/occ app:install oidc_login
-    # php /var/www/html/occ app:install notes
-    # php /var/www/html/occ app:install bookmarks
-    # php /var/www/html/occ app:install deck
-    # php /var/www/html/occ app:install side_menu
     php /var/www/html/occ app:install contacts
     php /var/www/html/occ app:install spreed
     php /var/www/html/occ app:install collectives
+    php /var/www/html/occ app:install deck
+    php /var/www/html/occ app:install collectives
+    php /var/www/html/occ app:install talk
+    php /var/www/html/occ app:install passwords
+    php /var/www/html/occ app:install openai_and_localai_integration
+    php /var/www/html/occ app:install nextcloud_assistant
+    php /var/www/html/occ app:install github_integration
     echo "Nextcloud apps installation complete."
