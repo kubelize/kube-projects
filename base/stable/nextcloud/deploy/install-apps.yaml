@@ -11,9 +11,10 @@ data:
     php /var/www/html/occ app:install collectives
     php /var/www/html/occ app:install deck
     php /var/www/html/occ app:install collectives
-    php /var/www/html/occ app:install talk
     php /var/www/html/occ app:install passwords
-    php /var/www/html/occ app:install openai_and_localai_integration
-    php /var/www/html/occ app:install nextcloud_assistant
-    php /var/www/html/occ app:install github_integration
+    php /var/www/html/occ app:install integration_openai
+    php /var/www/html/occ app:install assistant
+    php /var/www/html/occ app:install integration_github
+    php /var/www/html/occ app:install announcementcenter
+    php /var/www/html/occ app:install twofactor_totp
     echo "Nextcloud apps installation complete."
