@@ -13,9 +13,6 @@ resources:
   # - ../../../base/stable/gameservers/minecraft/vanilla/
   - ../../../base/stable/uptime-kuma/
 
-  # secrets
-  - secrets/
-
 patches:
   - path: ./patches/pihole-config.yaml
     target:

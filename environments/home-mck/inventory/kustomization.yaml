@@ -12,9 +12,6 @@ resources:
 - ../../../base/stable/gameservers/web-rcon/
 - ../../../base/stable/uptime-kuma/
 
-# secrets
-- secrets/
-
 patches:
   - path: ./patches/vanilla-minecraft.yaml
     target:
