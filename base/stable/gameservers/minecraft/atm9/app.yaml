@@ -1,0 +1,70 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: atm9-minecraft
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: minecraft
+  source:
+    repoURL: https://itzg.github.io/minecraft-server-charts/
+    targetRevision: 4.19.0
+    chart: minecraft
+    helm:
+      parameters: []
+      valuesObject:
+        image:
+          repository: itzg/minecraft-server
+          tag: java17
+          pullPolicy: IfNotPresent
+        replicaCount: 1
+        resources:
+            requests:
+              memory: 4Gi
+              cpu: 1000m
+            limits:
+              memory: 8Gi
+              cpu: 6000m
+        minecraftServer:
+          eula: "TRUE"
+          # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
+          version: 1.20.1
+          # This can be one of "VANILLA", "AUTO_CURSEFORGE"
+          type: "AUTO_CURSEFORGE"
+          forgeVersion: "14.23.5.2860"
+          cfServerMod: ""
+          serviceType: LoadBalancer
+          servicePort: 25565
+          maxTickTime: -1
+          motd: "RLCraft on Kubernetes!"
+          memory: 4096M
+          icon: "https://raw.githubusercontent.com/kubelize/kube-builder/refs/heads/dev/docs/src/assets/logo.png"
+          rcon:
+            enabled: true
+            withGeneratedPassword: false
+            port: 25575
+            existingSecret: minecraft-rcon-password
+            secretKey: rcon-password
+            serviceType: ClusterIP
+          autoCurseForge:
+            apiKey:
+              existingSecret: "cf-api-token"
+              secretKey: cf-api-key
+            forceSynchronize: true
+            pageUrl: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-9/files/6174211"
+        persistence:
+          storageClass: "longhorn"
+          dataDir:
+            enabled: true
+            Size: 15Gi
+            accessModes:
+              - ReadWriteOnce

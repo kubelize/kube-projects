@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patch
+spec:
+  source:
+    helm:
+      valuesObject:
+        minecraftServer:
+          motd: §b💀
+          maxTickTime: 60000
+          difficulty: hard
+          whitelist: McKency, 
+          icon: "https://raw.githubusercontent.com/kubelize/kube-projects/refs/heads/dev/environments/home-mck/inventory/src/assets/minecraft-atm9-icon.png"
+          maxPlayers: 10
+          jvmXXOpts: "-XX:+UseConcMarkSweepGC -XX:+CMSIncrementalMode -XX:-UseAdaptiveSizePolicy -Xmn128M"
+          autoCurseForge:
+            overridesSkipExisting: true
+        serviceAnnotations:
+          "lbipam.cilium.io/ips": "192.168.1.234"
+          
+
+          

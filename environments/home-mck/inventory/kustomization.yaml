@@ -8,7 +8,8 @@ resources:
 # stable
 #- ../../../base/stable/nextcloud/
 - ../../../base/stable/gameservers/minecraft/vanilla/
-- ../../../base/stable/gameservers/minecraft/rlcraft/
+- ../../../base/stable/gameservers/minecraft/atm9/
+#- ../../../base/stable/gameservers/minecraft/rlcraft/
 - ../../../base/stable/gameservers/web-rcon/
 - ../../../base/stable/uptime-kuma/
 
@@ -21,10 +22,14 @@ patches:
     target:
       kind: Application
       name: pihole
-  - path: ./patches/rlcraft-minecraft.yaml
+  - path: ./patches/atm9-minecraft.yaml
     target:
       kind: Application
-      name: rlcraft-minecraft
+      name: atm9-minecraft
+#  - path: ./patches/rlcraft-minecraft.yaml
+#    target:
+#      kind: Application
+#      name: rlcraft-minecraft
 #  - path: ./patches/nextcloud-values.yaml
 #    target:
 #      kind: Application
