@@ -29,7 +29,7 @@ spec:
         replicaCount: 1
         resources:
             requests:
-              memory: 4Gi
+              memory: 6Gi
               cpu: 4000m
             limits:
               memory: 8Gi
@@ -46,7 +46,7 @@ spec:
           servicePort: 25565
           maxTickTime: -1
           motd: "ATM9 on Kubernetes!"
-          memory: 4096M
+          memory: 6144M
           icon: "https://raw.githubusercontent.com/kubelize/kube-builder/refs/heads/dev/docs/src/assets/logo.png"
           rcon:
             enabled: true
