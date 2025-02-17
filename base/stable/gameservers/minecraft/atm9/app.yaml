@@ -30,17 +30,17 @@ spec:
         resources:
             requests:
               memory: 4Gi
-              cpu: 1000m
+              cpu: 4000m
             limits:
               memory: 8Gi
-              cpu: 6000m
+              cpu: 8000m
         minecraftServer:
           eula: "TRUE"
           # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
           version: 1.20.1
           # This can be one of "VANILLA", "AUTO_CURSEFORGE"
           type: "AUTO_CURSEFORGE"
-          forgeVersion: "14.23.5.2860"
+          forgeVersion: ""
           cfServerMod: ""
           serviceType: LoadBalancer
           servicePort: 25565
