@@ -6,6 +6,7 @@ spec:
   source:
     helm:
       valuesObject:
+        nodeSelector: talos-fpk-216
         minecraftServer:
           motd: §b💀
           maxTickTime: 60000
@@ -20,6 +21,7 @@ spec:
           "lbipam.cilium.io/ips": "192.168.1.235"
         livenessProbe:
           initialDelaySeconds: 600
+
           
 
           
