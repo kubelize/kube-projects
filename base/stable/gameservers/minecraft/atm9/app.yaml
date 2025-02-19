@@ -34,6 +34,8 @@ spec:
             limits:
               memory: 8Gi
               cpu: 8000m
+        extraEnv:
+          ALLOW_FLIGHT: TRUE
         minecraftServer:
           eula: "TRUE"
           # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
@@ -47,9 +49,7 @@ spec:
           maxTickTime: -1
           motd: "ATM9 on Kubernetes!"
           memory: 6144M
-          icon: "https://raw.githubusercontent.com/kubelize/kube-builder/refs/heads/dev/docs/src/assets/logo.png"
-          extraEnv:
-            ALLOW_FLIGHT: TRUE
+          icon: "https://raw.githubusercontent.com/kubelize/kube-builder/refs/heads/dev/docs/src/assets/logo.png
           rcon:
             enabled: true
             withGeneratedPassword: false
