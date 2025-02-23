@@ -67,6 +67,6 @@ spec:
           storageClass: "longhorn"
           dataDir:
             enabled: true
-            Size: 15Gi
+            Size: 30Gi
             accessModes:
               - ReadWriteOnce
