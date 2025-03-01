@@ -223,6 +223,7 @@ spec:
               swift.config.php: false
             phpConfigs:
               zz-pm_children.ini: |-
+                [www]
                 pm=dynamic
                 pm.max_children=21
                 pm.start_servers=5
