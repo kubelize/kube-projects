@@ -222,7 +222,7 @@ spec:
               smtp.config.php: true
               swift.config.php: false
             phpConfigs:
-              zz-pm_children.ini: |-
+              zz-pm_children.conf: |-
                 [www]
                 pm=dynamic
                 pm.max_children=21
