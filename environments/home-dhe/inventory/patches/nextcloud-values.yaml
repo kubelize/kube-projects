@@ -8,8 +8,12 @@
   path: "/spec/sources/1/helm/valuesObject/nextcloud/host"
   value: drive.kubelize.com
 - op: add
-  path: "/spec/sources/1/helm/valuesObject/mariadb/primary/persistence/size"
-  value: 5Gi
+  path: "/spec/sources/1/helm/valuesObject/mariadb/primary/persistence"
+  value: 
+    enabled: true
+    storageClass: proxmox
+    size:
+      5Gi
 - op: add
   path: "/spec/sources/1/helm/valuesObject/persistence"
   value: 
