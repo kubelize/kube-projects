@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - install-apps.yaml
   - cronjob.yaml
-  - nextcloud-assistant.yaml
+  # - nextcloud-assistant.yaml

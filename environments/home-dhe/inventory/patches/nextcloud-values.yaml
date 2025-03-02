@@ -14,6 +14,7 @@
   path: "/spec/sources/1/helm/valuesObject/persistence"
   value: 
     enabled: true
+    storageClass: proxmox
     size:
       500Gi
 
