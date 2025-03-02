@@ -295,8 +295,6 @@ spec:
               resourcesPreset: "small"
               persistence:
                 enabled: true
-                size: 5Gi
-                storageClass: proxmox
           # https://github.com/bitnami/charts/tree/main/bitnami/redis
           redis:
             enabled: true
