@@ -4,24 +4,19 @@ resources:
 
   # incubator
   - ../../../base/incubator/home-assistant/
-  - ../../../base/incubator/pihole/
 
   # stable
   - ../../../base/stable/nextcloud/
-  # - ../../../base/stable/gameservers/sdtd/
-  # - ../../../base/stable/gameservers/conan-exiles/
-  # - ../../../base/stable/gameservers/minecraft/vanilla/
-  - ../../../base/stable/uptime-kuma/
 
 patches:
-  - path: ./patches/pihole-config.yaml
-    target:
-      kind: Application
-      name: pihole
-#  - path: ./patches/vanilla-minecraft.yaml
-#    target:
-#      kind: Application
-#      name: vanilla-minecraft
+  # - path: ./patches/pihole-config.yaml
+  #   target:
+  #     kind: Application
+  #     name: pihole
+  # - path: ./patches/vanilla-minecraft.yaml
+  #   target:
+  #     kind: Application
+  #     name: vanilla-minecraft
   - path: ./patches/nextcloud-values.yaml
     target:
       kind: Application
