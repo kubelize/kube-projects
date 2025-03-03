@@ -64,9 +64,9 @@ spec:
             forceSynchronize: true
             pageUrl: "https://www.curseforge.com/minecraft/modpacks/all-the-mods-9/files/6174211"
         persistence:
-          storageClass: "longhorn"
+          storageClass: "proxmox"
           dataDir:
             enabled: true
-            Size: 30Gi
+            Size: 60Gi
             accessModes:
               - ReadWriteOnce
