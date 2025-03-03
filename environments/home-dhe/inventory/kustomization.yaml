@@ -4,6 +4,7 @@ resources:
 
   # incubator
   - ../../../base/incubator/home-assistant/
+- ../../../base/stable/gameservers/minecraft/atm9/
 
   # stable
   - ../../../base/stable/nextcloud/
@@ -17,6 +18,10 @@ patches:
   #   target:
   #     kind: Application
   #     name: vanilla-minecraft
+  - path: ./patches/atm9-minecraft.yaml
+    target:
+      kind: Application
+      name: atm9-minecraft
   - path: ./patches/nextcloud-values.yaml
     target:
       kind: Application
