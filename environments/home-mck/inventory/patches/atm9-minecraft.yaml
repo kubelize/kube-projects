@@ -6,8 +6,6 @@ spec:
   source:
     helm:
       valuesObject:
-        nodeSelector:
-          kubernetes.io/hostname: talos-fpk-216
         minecraftServer:
           motd: §b💀
           maxTickTime: 60000

@@ -6,8 +6,6 @@ spec:
   source:
     helm:
       valuesObject:
-        nodeSelector:
-          kubernetes.io/hostname: talos-chw-1sk
         minecraftServer:
           serviceAnnotations:
             "lbipam.cilium.io/ips": "192.168.1.231"
