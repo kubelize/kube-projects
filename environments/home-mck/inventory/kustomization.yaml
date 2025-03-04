@@ -3,7 +3,7 @@ kind: Kustomization
 resources: 
 
 # incubator
-- ../../../base/incubator/pihole/
+#- ../../../base/incubator/pihole/
 
 # stable
 #- ../../../base/stable/nextcloud/
@@ -18,10 +18,10 @@ patches:
     target:
       kind: Application
       name: vanilla-minecraft
-  - path: ./patches/pihole-config.yaml
-    target:
-      kind: Application
-      name: pihole
+#  - path: ./patches/pihole-config.yaml
+#    target:
+#      kind: Application
+#      name: pihole
   - path: ./patches/atm9-minecraft.yaml
     target:
       kind: Application
