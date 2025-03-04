@@ -62,9 +62,9 @@ spec:
             # Less restrictive way of specifying modpack version, uses substring match example: "1.16.5"
             filenameMatcher: ""
         persistence:
-          storageClass: "longhorn"
+          storageClass: "proxmox"
           dataDir:
             enabled: true
-            Size: 10Gi
+            Size: 15Gi
             accessModes:
               - ReadWriteOnce
