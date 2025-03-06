@@ -4,20 +4,21 @@ resources:
 
   # incubator
   - ../../../base/incubator/home-assistant/
-  - ../../../base/stable/gameservers/minecraft/atm9/
 
   # stable
   - ../../../base/stable/nextcloud/
+  - ../../../base/stable/gameservers/minecraft/atm9/
+  - ../../../base/stable/gameservers/minecraft/vanilla/
 
 patches:
   # - path: ./patches/pihole-config.yaml
   #   target:
   #     kind: Application
   #     name: pihole
-  # - path: ./patches/vanilla-minecraft.yaml
-  #   target:
-  #     kind: Application
-  #     name: vanilla-minecraft
+   - path: ./patches/vanilla-minecraft.yaml
+     target:
+       kind: Application
+       name: vanilla-minecraft
   - path: ./patches/atm9-minecraft.yaml
     target:
       kind: Application
