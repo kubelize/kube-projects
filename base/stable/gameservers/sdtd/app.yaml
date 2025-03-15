@@ -27,6 +27,32 @@ spec:
           repository: kubelize/game-servers
           pullPolicy: IfNotPresent
           tag: "0.2.9-sdtd"
-        serverPasswordSecret:
-          useExisting: false
-          existingSecretName: ""
+        gameService:
+          type: LoadBalancer
+          ports:
+            - name: gameport1tcp
+              protocol: TCP
+              port: 26900
+              targetPort: 26900
+            - name: gameport1udp
+              protocol: UDP
+              port: 26900
+              targetPort: 26900
+            - name: gameport2udp
+              protocol: UDP
+              port: 26901
+              targetPort: 26901
+            - name: gameport3udp
+              protocol: UDP
+              port: 26902
+              targetPort: 26902
+        volumeMounts:
+          - name: server-config
+            mountPath: "/home/kubelize/steam/config-data/config-values.yaml"
+            subPath: "config-values.yaml"
+          - name: storage
+            mountPath: "/home/kubelize/server"
+        volumes:
+          - name: server-config
+            configMap:
+              name: server-config

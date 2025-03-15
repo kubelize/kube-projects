@@ -11,10 +11,6 @@ resources:
   - ../../../customers/a01/
 
 patches:
-  # - path: ./patches/pihole-config.yaml
-  #   target:
-  #     kind: Application
-  #     name: pihole
   - path: ./patches/vanilla-minecraft.yaml
     target:
       kind: Application
