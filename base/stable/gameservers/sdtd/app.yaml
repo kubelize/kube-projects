@@ -14,7 +14,6 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: sdtd
   source:
     repoURL: https://kubelize.github.io/game-servers/
     targetRevision: 0.1.0
