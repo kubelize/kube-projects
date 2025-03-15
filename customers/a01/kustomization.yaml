@@ -10,4 +10,8 @@ patches:
   - path: ./patches/nextcloud-values.yaml
     target:
       kind: Application
-      name: nextcloud
+      name: a01-nextcloud
+  - path: ./patches/sdtd-values.yaml
+    target:
+      kind: Application
+      name: a01-sdtd

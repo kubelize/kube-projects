@@ -9,14 +9,9 @@ spec:
   source:
     helm:
       valuesObject:
-        fullnameOverride: a01-sdtd
         gameService:
           annotations:
             "lbipam.cilium.io/ips": "10.130.5.236"
-        volumes:
-          - name: storage
-            persistentVolumeClaim:
-              claimName: a01-sdtd
         serverConfig:
           # Details
           ServerName: "My Game Server"
