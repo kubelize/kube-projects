@@ -47,7 +47,7 @@ spec:
               targetPort: 26902
         persistence:
           enabled: true
-          storageClass: proxmox
+          storageClassName: proxmox
           accessMode: ReadWriteOnce
           size: 40Gi
         volumeMounts:
