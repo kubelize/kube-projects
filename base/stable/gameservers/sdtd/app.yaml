@@ -46,6 +46,11 @@ spec:
               protocol: UDP
               port: 26902
               targetPort: 26902
+        persistence:
+          enabled: true
+          storageClass: proxmox
+          accessMode: ReadWriteOnce
+          size: 40Gi
         volumeMounts:
           - name: server-config
             mountPath: "/home/kubelize/steam/config-data/config-values.yaml"
