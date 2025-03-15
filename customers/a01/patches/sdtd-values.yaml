@@ -11,7 +11,7 @@ spec:
       valuesObject:
         gameService:
           annotations:
-            "lbipam.cilium.io/ips": "10.130.5.236"
+            "lbipam.cilium.io/ips": "10.130.5.237"
         serverConfig:
           # Details
           ServerName: "My Game Server"
