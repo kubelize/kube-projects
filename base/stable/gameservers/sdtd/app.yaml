@@ -1,14 +1,32 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sdtd-server
+  name: sdtd
   namespace: argocd
 spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
   project: default
-  sources:
-    - repoURL: https://github.com/kubelize/kube-projects
-      path: 00_base/stable/gameservers/sdtd/deployment
-      targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: sdtd-server
+    namespace: sdtd
+  source:
+    repoURL: https://kubelize.github.io/game-servers/
+    targetRevision: 0.1.0
+    chart: game-servers
+    helm:
+      parameters: []
+      valuesObject:
+        replicaCount: 1
+        image:
+          repository: kubelize/game-servers
+          pullPolicy: IfNotPresent
+          tag: "0.2.9-sdtd"
+        serverPasswordSecret:
+          useExisting: false
+          existingSecretName: ""

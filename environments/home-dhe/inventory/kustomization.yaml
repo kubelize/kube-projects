@@ -6,9 +6,9 @@ resources:
   - ../../../base/incubator/home-assistant/
 
   # stable
-  - ../../../base/stable/nextcloud/
   - ../../../base/stable/gameservers/minecraft/atm9/
   - ../../../base/stable/gameservers/minecraft/vanilla/
+  - ../../../customers/a01/
 
 patches:
   # - path: ./patches/pihole-config.yaml
@@ -23,7 +23,3 @@ patches:
     target:
       kind: Application
       name: atm9-minecraft
-  - path: ./patches/nextcloud-values.yaml
-    target:
-      kind: Application
-      name: nextcloud
