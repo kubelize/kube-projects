@@ -14,8 +14,8 @@ spec:
             "lbipam.cilium.io/ips": "10.130.5.237"
         serverConfig:
           # Details
-          ServerName: "My Game Server"
-          ServerDescription: "Managed by kubelize"
+          ServerName: "Warpzone"
+          ServerDescription: "A sdtd server by kubelize"
           ServerWebsiteURL: ""
           ServerLoginConfirmationText: ""
           Region: "Europe"
@@ -56,7 +56,7 @@ spec:
           GameWorld: "Navezgane"
           WorldGenSeed: "asdf"
           WorldGenSize: "6144"
-          GameName: "My Game"
+          GameName: "Warpzone"
           GameMode: "GameModeSurvival"
           # Difficulty
           GameDifficulty: "1"
