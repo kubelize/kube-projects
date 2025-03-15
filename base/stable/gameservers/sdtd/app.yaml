@@ -55,7 +55,7 @@ spec:
             mountPath: "/home/kubelize/steam/config-data/config-values.yaml"
             subPath: "config-values.yaml"
           - name: storage
-            mountPath: "/home/kubelize/server"
+            mountPath: "/home/kubelize"
         volumes:
           - name: server-config
             configMap:
