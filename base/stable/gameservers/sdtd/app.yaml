@@ -25,7 +25,7 @@ spec:
         image:
           repository: kubelize/game-servers
           pullPolicy: IfNotPresent
-          tag: "0.2.9-sdtd"
+          tag: "0.3.0-sdtd"
         gameService:
           type: LoadBalancer
           ports:
