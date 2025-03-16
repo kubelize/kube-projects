@@ -11,7 +11,6 @@ resources:
 - ../../../base/stable/gameservers/minecraft/atm9/
 #- ../../../base/stable/gameservers/minecraft/rlcraft/
 - ../../../base/stable/gameservers/web-rcon/
-#- ../../../base/stable/uptime-kuma/
 
 patches:
   - path: ./patches/vanilla-minecraft.yaml
