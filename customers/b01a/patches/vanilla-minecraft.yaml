@@ -3,6 +3,13 @@ kind: Application
 metadata:
   name: patch
 spec:
+  ignoreDifferences:
+  - jsonPointers:
+    - /spec/volumeName
+    kind: PersistentVolumeClaim
+  syncPolicy:
+    syncOptions:
+      - RespectIgnoreDifferences=true
   destination:
     namespace: b01a-minecraft
   source:
