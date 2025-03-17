@@ -8,16 +8,16 @@ resources:
 # stable
 #- ../../../base/stable/nextcloud/
 - ../../../base/stable/gameservers/minecraft/vanilla/
-- ../../../base/stable/gameservers/minecraft/atm9/
+#- ../../../base/stable/gameservers/minecraft/atm9/
 #- ../../../base/stable/gameservers/minecraft/rlcraft/
 - ../../../base/stable/gameservers/web-rcon/
 - ../../../customers/b01a/
 
 patches:
-  - path: ./patches/vanilla-minecraft.yaml
-    target:
-      kind: Application
-      name: vanilla-minecraft
+#  - path: ./patches/vanilla-minecraft.yaml
+#    target:
+#      kind: Application
+#      name: vanilla-minecraft
 #  - path: ./patches/pihole-config.yaml
 #    target:
 #      kind: Application

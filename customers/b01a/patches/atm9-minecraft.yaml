@@ -19,7 +19,7 @@ spec:
           autoCurseForge:
             overridesSkipExisting: true
         serviceAnnotations:
-          "lbipam.cilium.io/ips": "192.168.1.238"
+          "lbipam.cilium.io/ips": "192.168.1.235"
         livenessProbe:
           initialDelaySeconds: 600
         readinessProbe:
