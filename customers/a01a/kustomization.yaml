@@ -3,8 +3,6 @@ kind: Kustomization
 resources:
   - ../../base/stable/gameservers/sdtd/
   - ../../base/stable/nextcloud/
-  - ../../base/stable/gameservers/minecraft/atm9/
-  - ../../base/stable/gameservers/minecraft/vanilla/
 
 namePrefix: "a01a-"
 
@@ -17,11 +15,3 @@ patches:
     target:
       kind: Application
       name: sdtd
-  - path: ./patches/vanilla-minecraft.yaml
-    target:
-      kind: Application
-      name: vanilla-minecraft
-  - path: ./patches/atm9-minecraft.yaml
-    target:
-      kind: Application
-      name: atm9-minecraft
