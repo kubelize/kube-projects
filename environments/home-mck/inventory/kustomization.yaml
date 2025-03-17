@@ -7,7 +7,7 @@ resources:
 
 # stable
 #- ../../../base/stable/nextcloud/
-- ../../../base/stable/gameservers/minecraft/vanilla/
+#- ../../../base/stable/gameservers/minecraft/vanilla/
 #- ../../../base/stable/gameservers/minecraft/atm9/
 #- ../../../base/stable/gameservers/minecraft/rlcraft/
 - ../../../base/stable/gameservers/web-rcon/

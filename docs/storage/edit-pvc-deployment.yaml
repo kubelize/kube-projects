@@ -24,4 +24,16 @@ spec:
       volumes:
       - name: pvc-volume
         persistentVolumeClaim:
-          claimName: vanilla-minecraft-minecraft-datadir # Name of your existing PVC
+          claimName: existing-pvc # Name of your existing PVC.
+--- # for swapping pv between namespaces
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: existing-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 60Gi
+  volumeName: # Volume name goes here
