@@ -12,6 +12,8 @@ resources:
 #- ../../base/stable/gameservers/minecraft/rlcraft/
 #- ../../base/stable/gameservers/web-rcon/
 
+namePrefix: "b01a-"
+
 patches:
 #  - path: ./patches/vanilla-minecraft.yaml
 #    target:
