@@ -7,26 +7,26 @@ resources:
 
 # stable
 #- ../../base/stable/nextcloud/
-#- ../../base/stable/gameservers/minecraft/vanilla/
+- ../../base/stable/gameservers/minecraft/vanilla/
 - ../../base/stable/gameservers/minecraft/atm9/
 #- ../../base/stable/gameservers/minecraft/rlcraft/
 #- ../../base/stable/gameservers/web-rcon/
 
-namePrefix: "01a-"
+namePrefix: "b01a-"
 
 patches:
-#  - path: ./patches/vanilla-minecraft.yaml
-#    target:
-#      kind: Application
-#      name: vanilla-minecraft
+  - path: ./patches/vanilla-minecraft.yaml
+    target:
+      kind: Application
+      name: vanilla-minecraft
 #  - path: ./patches/pihole-config.yaml
 #    target:
 #      kind: Application
 #      name: pihole
-#  - path: ./patches/atm9-minecraft.yaml
-#    target:
-#      kind: Application
-#      name: atm9-minecraft
+  - path: ./patches/atm9-minecraft.yaml
+    target:
+      kind: Application
+      name: atm9-minecraft
 #  - path: ./patches/rlcraft-minecraft.yaml
 #    target:
 #      kind: Application
