@@ -22,10 +22,10 @@ patches:
 #    target:
 #      kind: Application
 #      name: pihole
-  - path: ./patches/atm9-minecraft.yaml
-    target:
-      kind: Application
-      name: atm9-minecraft
+#  - path: ./patches/atm9-minecraft.yaml
+#    target:
+#      kind: Application
+#      name: atm9-minecraft
 #  - path: ./patches/rlcraft-minecraft.yaml
 #    target:
 #      kind: Application
