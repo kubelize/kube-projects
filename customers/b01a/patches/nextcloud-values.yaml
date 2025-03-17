@@ -1,0 +1,19 @@
+- op: replace
+  path: "/spec/sources/1/helm/valuesObject/ingress/tls"
+  value:
+    - secretName: nextcloud-tls
+      hosts:
+        - cloud.mckensy.xyz
+- op: add
+  path: "/spec/sources/1/helm/valuesObject/nextcloud/host"
+  value: cloud.mckensy.xyz
+- op: add
+  path: "/spec/sources/1/helm/valuesObject/mariadb/primary/persistence/size"
+  value: 5Gi
+- op: add
+  path: "/spec/sources/1/helm/valuesObject/persistence"
+  value: 
+    enabled: true
+    size:
+      500Gi
+

@@ -14,7 +14,6 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: minecraft
   source:
     repoURL: https://itzg.github.io/minecraft-server-charts/
     targetRevision: 4.19.0
