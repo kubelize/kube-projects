@@ -1,0 +1,115 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patch
+  namespace: argocd
+spec:
+  destination:
+    namespace: a01-sdtd
+  source:
+    helm:
+      valuesObject:
+        gameService:
+          annotations:
+            "lbipam.cilium.io/ips": "10.130.5.237"
+        serverConfig:
+          # Details
+          ServerName: "Warpzone"
+          ServerDescription: "A sdtd server by kubelize"
+          ServerWebsiteURL: ""
+          ServerLoginConfirmationText: ""
+          Region: "Europe"
+          Language: "English"
+          # Networking
+          ServerPort: "26900"
+          ServerVisibility: "2"
+          ServerDisabledNetworkProtocols: "SteamNetworking"
+          ServerMaxWorldTransferSpeed: "512"
+          # Player Slots
+          ServerMaxPlayerCount: "8"
+          ServerReservedSlots: "0"
+          ServerReservedSlotsPermission: "100"
+          ServerAdminSlots: "0"
+          ServerAdminSlotsPermission: "0"
+          # Web Interface
+          WebDashboardEnabled: "false"
+          WebDashboardPort: "8080"
+          WebDashboardUrl: ""
+          EnableMapRendering: "false"
+          TelnetEnabled: "true"
+          TelnetPort: "8081"
+          TelnetFailedLoginLimit: ""
+          TelnetFailedLoginsBlocktime: "10"
+          TerminalWindowEnabled: "10"
+          # Various Settings
+          ServerAllowCrossplay: "false"
+          EACEnabled: "true"
+          IgnoreEOSSanctions: "false"
+          HideCommandExecutionLog: "0"
+          MaxUncoveredMapChunksPerPlayer: "131072"
+          PersistentPlayerProfiles: "false"
+          MaxChunkAge: "-1"
+          SaveDataLimit: "-1"
+          ServerMaxAllowedViewDistance: "12"
+          MaxQueuedMeshLayers: "1000"
+          # World
+          GameWorld: "Navezgane"
+          WorldGenSeed: "asdf"
+          WorldGenSize: "6144"
+          GameName: "Warpzone"
+          GameMode: "GameModeSurvival"
+          # Difficulty
+          GameDifficulty: "1"
+          BlockDamagePlayer: "100"
+          BlockDamageAI: "100"
+          BlockDamageAIBM: "100"
+          XPMultiplier: "100"
+          PlayerSafeZoneLevel: "5"
+          PlayerSafeZoneHours: "5"
+          # Modes
+          CreativeMode: "false"
+          DayNightLength: "60"
+          DayLightLength: "18"
+          DeathPenalty: "1"
+          DropOnDeath: "1"
+          DropOnQuit: "0"
+          BedrollDeadZoneSize: "15"
+          BedrollExpiryTime: "45"
+          TwitchServerPermission: "90"
+          TwitchBloodMoonAllowed: "false"
+          QuestProgressionDailyLimit: "4"
+          # AI Settings
+          MaxSpawnedZombies: "64"
+          MaxSpawnedAnimals: "50"
+          EnemySpawnMode: "true"
+          EnemyDifficulty: "0"
+          ZombieFeralSense: "0"
+          ZombieMove: "0"
+          ZombieMoveNight: "3"
+          ZombieFeralMove: "3"
+          ZombieBMMove: "3"
+          BloodMoonFrequency: "7"
+          BloodMoonRange: "0"
+          BloodMoonWarning: "8"
+          BloodMoonEnemyCount: "8"
+          # Loot
+          LootAbundance: "100"
+          LootRespawnDays: "7"
+          AirDropFrequency: "72"
+          AirDropMarker: "true"
+          # Multiplayer
+          PartySharedKillRange: "100"
+          PlayerKillingMode: "3"
+          # Land Claim
+          LandClaimCount: "3"
+          LandClaimSize: "41"
+          LandClaimDeadZone: "30"
+          LandClaimExpiryTime: "7"
+          LandClaimDecayMode: "0"
+          LandClaimOnlineDurabilityModifier: "4"
+          LandClaimOfflineDurabilityModifier: "4"
+          LandClaimOfflineDelay: "0"
+          DynamicMeshEnabled: "true"
+          DynamicMeshLandClaimOnly: "true"
+          DynamicMeshLandClaimBuffer: "3"
+          DynamicMeshMaxItemCache: "3"

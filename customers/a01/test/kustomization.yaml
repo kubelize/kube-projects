@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base/stable/gameservers/sdtd/
+  - ../../base/stable/nextcloud/
+
+nameSuffix: "-test"
+
+patches:
+  - path: ./patches/nextcloud-values.yaml
+    target:
+      kind: Application
+      name: nextcloud
+  - path: ./patches/sdtd-values.yaml
+    target:
+      kind: Application
+      name: sdtd

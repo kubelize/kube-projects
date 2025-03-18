@@ -4,7 +4,7 @@ resources:
   - ../../base/stable/gameservers/sdtd/
   - ../../base/stable/nextcloud/
 
-namePrefix: "a01a-"
+nameSuffix: "-test"
 
 patches:
   - path: ./patches/nextcloud-values.yaml
