@@ -40,7 +40,7 @@ spec:
           TelnetPort: "8081"
           TelnetFailedLoginLimit: ""
           TelnetFailedLoginsBlocktime: "10"
-          TerminalWindowEnabled: "10"
+          TerminalWindowEnabled: "true"
           # Various Settings
           ServerAllowCrossplay: "false"
           EACEnabled: "true"
