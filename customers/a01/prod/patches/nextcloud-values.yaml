@@ -1,6 +1,6 @@
 - op: add
   path: "/spec/destination/namespace"
-  value: a01a-nextcloud
+  value: a01-nextcloud
 - op: replace
   path: "/spec/sources/1/helm/valuesObject/ingress/tls"
   value:
