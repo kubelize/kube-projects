@@ -45,21 +45,3 @@ spec:
               protocol: UDP
               port: 26902
               targetPort: 26902
-        persistence:
-          enabled: true
-          storageClassName: proxmox
-          accessMode: ReadWriteOnce
-          size: 40Gi
-        volumeMounts:
-          - name: server-config
-            mountPath: "/home/kubelize/steam/config-data/config-values.yaml"
-            subPath: "config-values.yaml"
-          - name: storage
-            mountPath: "/home/kubelize/server"
-        volumes:
-          - name: server-config
-            configMap:
-              name: server-config
-          - name: storage
-            persistentVolumeClaim:
-              claimName: a01a-sdtd
