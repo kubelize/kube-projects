@@ -10,6 +10,7 @@ spec:
   syncPolicy:
     syncOptions:
       - RespectIgnoreDifferences=true
+      - CreateNamespace=true
   destination:
     namespace: a01-minecraft
   source:
