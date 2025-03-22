@@ -16,3 +16,7 @@ patches:
     target:
       kind: Application
       name: sdtd
+  - path: ./patches/vanilla-minecraft.yaml
+    target:
+      kind: Application
+      name: vanilla-minecraft
