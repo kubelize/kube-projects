@@ -1,0 +1,13 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: minecraft-community-server-route
+  namespace: traefik
+spec:
+  entryPoints:
+    - minecraft
+  routes:
+    - match: HostSNI(`icykhaye.kubelize.io`)
+      services:
+        - name: minecraft1-external
+          port: 25565
