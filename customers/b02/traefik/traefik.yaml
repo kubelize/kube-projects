@@ -9,7 +9,7 @@ spec:
   routes:
     - match: HostSNI(`*`)
       services:
-        - name: b02-minecraft1-external
+        - name: b02-paper-minecraft-prod
           port: 33333
 ---
 apiVersion: traefik.io/v1alpha1
@@ -23,5 +23,5 @@ spec:
   routes:
     - match: HostSNI(`*`)
       services:
-        - name: b02-minecraft1-external
+        - name: b02-paper-minecraft-test
           port: 33334
