@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: b02-minecraft1-external
+  name: minecraft1-external
   namespace: traefik
 spec:
   ports:
@@ -12,7 +12,7 @@ spec:
 apiVersion: v1
 kind: Endpoints
 metadata:
-  name: b02-minecraft1-external
+  name: minecraft1-external
   namespace: traefik
 subsets:
   - addresses:
