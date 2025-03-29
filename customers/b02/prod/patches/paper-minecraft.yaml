@@ -12,7 +12,7 @@ spec:
       - RespectIgnoreDifferences=true
       - CreateNamespace=true
   destination:
-    namespace: a02-paper-minecraft
+    namespace: b02-paper-minecraft
   source:
     helm:
       valuesObject:
