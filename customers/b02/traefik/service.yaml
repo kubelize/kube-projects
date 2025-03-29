@@ -7,6 +7,5 @@ spec:
   ports:
     - port: 25565
       targetPort: 25565
-  clusterIP: None
   externalName: 85.5.236.199
   type: ExternalName
