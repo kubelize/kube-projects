@@ -1,13 +1,27 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRouteTCP
 metadata:
-  name: minecraft-community-server-route
+  name: paper-minecraft-route-prod
   namespace: traefik
 spec:
   entryPoints:
-    - minecraft
+    - b02-prod
   routes:
     - match: HostSNI(`*`)
       services:
         - name: b02-minecraft1-external
-          port: 25565
+          port: 33333
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: paper-minecraft-route-test
+  namespace: traefik
+spec:
+  entryPoints:
+    - b02-test
+  routes:
+    - match: HostSNI(`*`)
+      services:
+        - name: b02-minecraft1-external
+          port: 33334

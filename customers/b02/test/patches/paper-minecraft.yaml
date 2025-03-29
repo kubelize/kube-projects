@@ -17,7 +17,7 @@ spec:
     helm:
       valuesObject:
         serviceAnnotations:
-          "lbipam.cilium.io/ips": "192.168.1.237"
+          "lbipam.cilium.io/ips": "10.130.5.238"
         minecraftServer:
           motd: §b❄
           maxTickTime: 60000

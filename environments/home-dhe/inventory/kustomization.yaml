@@ -3,5 +3,4 @@ kind: Kustomization
 resources: 
 
   - ../../../customers/a01/
-  - ../../../customers/b02/
 
