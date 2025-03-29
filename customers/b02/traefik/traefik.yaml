@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - minecraft
   routes:
-    - match: HostSNI(`icykhaye.kubelize.io`)
+    - match: HostSNI(`*`)
       services:
         - name: b02-minecraft1-external
           port: 25565
