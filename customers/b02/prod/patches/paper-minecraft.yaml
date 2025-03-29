@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: patch
+spec:
+  ignoreDifferences:
+  - jsonPointers:
+    - /spec/volumeName
+    kind: PersistentVolumeClaim
+  syncPolicy:
+    syncOptions:
+      - RespectIgnoreDifferences=true
+      - CreateNamespace=true
+  destination:
+    namespace: a02-paper-minecraft
+  source:
+    helm:
+      valuesObject:
+        serviceAnnotations:
+          "lbipam.cilium.io/ips": "10.130.5.238"
+        minecraftServer:
+          motd: §b❄
+          maxTickTime: 60000
+          difficulty: normal
+          levelSeed: "757067671151835873"
+          whitelist: McKency, icykhaye, Moffoso
+          icon: "https://raw.githubusercontent.com/kubelize/kube-projects/refs/heads/dev/environments/home-mck/inventory/src/assets/minecraft-christmas-tree.png"
+          viewDistance: 16
+          memory: "6144M"
+          jvmXXOpts: "-XX:MaxRAMPercentage=75 -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:TargetSurvivorRatio=70 -XX:G1NewSizePercent=40 -XX:G1MaxNewSizePercent=50 -XX:InitiatingHeapOccupancyPercent=12 -XX:G1MixedGCLiveThresholdPercent=40"
+        resources:
+          requests:
+            cpu: 2000m
+            memory: 6144Mi
+          limits:
+            cpu: 4000m
+            memory: 8192Mi
+          
+
+          

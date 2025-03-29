@@ -1,0 +1,60 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: paper-minecraft
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://itzg.github.io/minecraft-server-charts/
+    targetRevision: 4.19.0
+    chart: minecraft
+    helm:
+      parameters: []
+      valuesObject:
+        image:
+          repository: itzg/minecraft-server
+          tag: latest
+          pullPolicy: IfNotPresent
+        replicaCount: 1
+        resources:
+            requests:
+              memory: 2Gi
+              cpu: 1000m
+            limits:
+              memory: 4Gi
+              cpu: 2000m
+        minecraftServer:
+          eula: "TRUE"
+          # One of: LATEST, SNAPSHOT, or a specific version (ie: "1.7.9").
+          version: LATEST
+          type: "PAPER"
+          serviceType: LoadBalancer
+          servicePort: 25565
+          maxTickTime: -1
+          motd: "Minecraft on Kubernetes!"
+          memory: 2048M
+          icon: "https://raw.githubusercontent.com/kubelize/kube-builder/refs/heads/dev/docs/src/assets/logo.png"
+          rcon:
+            enabled: true
+            withGeneratedPassword: false
+            port: 25575
+            existingSecret: minecraft-rcon-password
+            secretKey: rcon-password
+            serviceType: ClusterIP
+        persistence:
+          storageClass: "proxmox"
+          dataDir:
+            enabled: true
+            Size: 30Gi
+            accessModes:
+              - ReadWriteOnce
