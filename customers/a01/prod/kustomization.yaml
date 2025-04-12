@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 
   - ../../../base/stable/gameservers/sdtd/
+  - ../../../base/stable/gameservers/conan-exiles/
 
 nameSuffix: "-prod"
 
