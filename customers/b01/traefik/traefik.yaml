@@ -1,13 +1,18 @@
-apiVersion: traefik.io/v1alpha1
-kind: IngressRouteTCP
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
   name: immich-route-prod
   namespace: traefik
 spec:
   entryPoints:
-    - b01-prod
+    - web
+    - websecure
   routes:
-    - match: HostSNI(`*`)
+    - match: Host(`immich.mckensy.xyz`)
+      kind: Rule
       services:
-        - name: b01-immich-prod
-          port: 2283
+        - name: home-mck-service
+          scheme: https
+          port: 443
+          servers:
+            - url: "144.2.66.218:443"
