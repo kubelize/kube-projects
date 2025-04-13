@@ -8,7 +8,7 @@ spec:
     - web
     - websecure
   routes:
-    - match: Host(`immich.mckensy.xyz`)
+    - match: HostSNI(`immich.mckensy.xyz`)
       services:
         - name: b01-home-mck-service
           port: 443
