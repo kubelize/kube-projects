@@ -1,15 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: home-mck-service
+  name: b01-home-mck-service
   namespace: traefik
 spec:
   type: ExternalName
-  externalName: 144.2.66.218.nip.io
+  externalName: 144.2.66.218
   ports:
-    - name: https
-      port: 443
-      targetPort: 443
-    - name: http
-      port: 80
-      targetPort: 80
+    - port: 443
+      targetPort: 443 
