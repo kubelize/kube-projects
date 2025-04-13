@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: HostSNI(`immich.mckensy.xyz`)
+    - match: HostSNI(`*`)
       services:
         - name: b01-home-mck-service
           port: 443
