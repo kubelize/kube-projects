@@ -1,4 +1,8 @@
 - op: add
+  path: "/spec/destination/namespace"
+  value:
+    name: b01-immich
+- op: add
   path: "/spec/sources/0/helm"
   value:
     valueFiles:
