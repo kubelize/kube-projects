@@ -1,0 +1,13 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: immich-route-prod
+  namespace: traefik
+spec:
+  entryPoints:
+    - b01-prod
+  routes:
+    - match: HostSNI(`immich.mckensy.xyz`)
+      services:
+        - name: b02-immich-prod
+          port: 2283
