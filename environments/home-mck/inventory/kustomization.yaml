@@ -5,4 +5,6 @@ resources:
 - ../../../addons/argocd/repositories/
 - ../../../base/stable/gameservers/web-rcon/
 - ../../../customers/b01a/
+- ../../../customers/b01/
 - ../../../customers/b02/
+
