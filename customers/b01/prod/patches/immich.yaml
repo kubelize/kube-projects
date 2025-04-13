@@ -1,5 +1,10 @@
 - op: add
-  path: "/spec/sources/1/helm
+  path: "/spec/sources/0/helm"
+  value:
+    valueFiles:
+      - $values/customers/b01/values/immich/values.yaml
+- op: add
+  path: "/spec/sources/1/helm"
   value:
     valueFiles:
       - $values/customers/b01/values/immich/values.yaml

@@ -1,5 +1,0 @@
-- op: add
-  path: "/spec/sources/0/helm
-  value:
-    valueFiles:
-      - $values/customers/b01/values/immich/values.yaml
