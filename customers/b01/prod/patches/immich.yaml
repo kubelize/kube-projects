@@ -1,16 +1,14 @@
-- op: replace
-  path: "/spec/sources"
+- op: add
+  path: "/spec/destination/namespace"
+  value: b01-immich
+- op: add
+  path: "/spec/sources/0/helm"
   value:
-    - repoURL: registry-1.docker.io/bitnamicharts
-      path: postgresql
-      targetRevision: 16.6.3
-      chart: postgresql
-    - repoURL: ghcr.io/immich-app/immich-charts
-      targetRevision: 0.9.2
-      chart: immich
-    - repoURL: https://github.com/kubelize/kube-projects
-      targetRevision: dev
-      ref: values
-    - repoURL: https://github.com/kubelize/kube-projects
-      targetRevision: dev
-      path: customers/b01/prod/deploy
+    valueFiles:
+      - $values/customers/b01/prod/values/postgresql/values.yaml
+- op: add
+  path: "/spec/sources/1/helm"
+  value:
+    valueFiles:
+      - $values/customers/b01/prod/values/immich/values.yaml
+
