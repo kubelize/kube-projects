@@ -5,7 +5,7 @@ metadata:
   namespace: traefik
 spec:
   type: ExternalName
-  externalName: 144.2.66.218
+  externalName: 144.2.66.218.nip.io
   ports:
     - name: https
       port: 443
@@ -13,11 +13,3 @@ spec:
     - name: http
       port: 80
       targetPort: 80
-
----
-apiVersion: traefik.io/v1alpha1
-kind: ServersTransport
-metadata:
-  name: skip-tls
-spec:
-  insecureSkipVerify: true
