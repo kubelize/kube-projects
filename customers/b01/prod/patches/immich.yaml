@@ -1,4 +1,4 @@
-- op: add
+- op: replace
   path: "/spec/sources"
   value:
     - repoURL: registry-1.docker.io/bitnamicharts
