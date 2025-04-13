@@ -3,3 +3,4 @@ kind: Kustomization
 resources: 
 
 - ../../../customers/b02/traefik/
+- ../../../customers/b01/traefik/
