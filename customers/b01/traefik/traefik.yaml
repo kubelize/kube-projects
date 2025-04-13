@@ -9,5 +9,5 @@ spec:
   routes:
     - match: HostSNI(`immich.mckensy.xyz`)
       services:
-        - name: b02-immich-prod
+        - name: b01-immich-prod
           port: 2283
