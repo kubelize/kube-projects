@@ -11,7 +11,7 @@
   value:
     valueFiles:
       - $values/customers/b01/prod/values/immich/values.yaml
-- op: add
+- op: replace
   path: "/spec/sources/3/helm"
   value:
     - repoURL: https://github.com/kubelize/kube-projects
