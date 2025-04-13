@@ -25,3 +25,5 @@ spec:
     - repoURL: https://github.com/kubelize/kube-projects
       targetRevision: dev
       ref: values
+    - repoURL: https://github.com/kubelize/kube-projects
+      targetRevision: dev
