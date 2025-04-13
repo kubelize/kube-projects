@@ -15,4 +15,4 @@ spec:
           scheme: https
           port: 443
           servers:
-            - url: "144.2.66.218:443"
+            - url: "144.2.66.218"
