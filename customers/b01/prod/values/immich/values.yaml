@@ -59,7 +59,7 @@ server:
     pullPolicy: IfNotPresent
   ingress:
     main:
-      enabled: true
+      enabled: false
 
 machine-learning:
   enabled: true
