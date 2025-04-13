@@ -6,7 +6,7 @@ metadata:
   name: immich
   namespace: argocd
 stringData:
-  url: ghcr.io/immich-app
+  url: ghcr.io/immich-app/immich-charts/immich
   name: immich-app
   type: helm
   enableOCI: "true"
