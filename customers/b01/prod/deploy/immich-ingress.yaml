@@ -18,6 +18,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: rei-nginx
+            name: b01-immich-prod-server
             port:
               number: 2283
