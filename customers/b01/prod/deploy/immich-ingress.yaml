@@ -3,16 +3,15 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
-  name: rei-nginx
-  namespace: rei-nginx
+  name: immich
 spec:
   tls:
   - hosts:
-    - tales.kubelize.com
-    secretName: rei-nginx-tls
+    - immich.mckensy.xyz
+    secretName: immich-tls
   ingressClassName: nginx
   rules:
-  - host: tales.kubelize.com
+  - host: immich.mckensy.xyz
     http:
       paths:
       - path: /
@@ -21,4 +20,4 @@ spec:
           service:
             name: rei-nginx
             port:
-              number: 80
+              number: 2283
