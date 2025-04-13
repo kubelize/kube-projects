@@ -9,8 +9,6 @@ spec:
     - websecure
   routes:
     - match: Host(`immich.mckensy.xyz`)
-      kind: Rule
       services:
         - name: b01-home-mck-service
           port: 443
-
