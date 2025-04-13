@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - b01-prod
   routes:
-    - match: HostSNI(`immich.mckensy.xyz`)
+    - match: HostSNI(`*`)
       services:
         - name: b01-immich-prod
           port: 2283
