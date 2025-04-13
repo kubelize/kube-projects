@@ -11,6 +11,6 @@ spec:
     - match: Host(`immich.mckensy.xyz`)
       kind: Rule
       services:
-        - name: home-mck-service
+        - name: b01-home-mck-service
           port: 443
 
