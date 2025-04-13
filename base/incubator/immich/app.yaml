@@ -24,4 +24,7 @@ spec:
       chart: immich
     - repoURL: https://github.com/kubelize/kube-projects
       targetRevision: dev
+      path: customers/example/stage/deploy
+    - repoURL: https://github.com/kubelize/kube-projects
+      targetRevision: dev
       ref: values

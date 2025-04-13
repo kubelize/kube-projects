@@ -11,4 +11,7 @@
   value:
     valueFiles:
       - $values/customers/b01/prod/values/immich/values.yaml
+- op: replace
+  path: "/spec/sources/2/path"
+  value: customers/b01/prod/deploy
 
