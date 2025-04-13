@@ -60,6 +60,7 @@ server:
   ingress:
     main:
       enabled: true
+      className: nginx
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
         # proxy-body-size is set to 0 to remove the body limit on file uploads
