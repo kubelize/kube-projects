@@ -12,7 +12,5 @@ spec:
       kind: Rule
       services:
         - name: home-mck-service
-          scheme: https
           port: 443
-          servers:
-            - url: "144.2.66.218"
+
