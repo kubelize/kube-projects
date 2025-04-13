@@ -25,3 +25,6 @@ spec:
     - repoURL: https://github.com/kubelize/kube-projects
       targetRevision: dev
       ref: values
+    - repoURL: https://github.com/kubelize/kube-projects
+      targetRevision: dev
+      path: base/incubator/immich/deploy
