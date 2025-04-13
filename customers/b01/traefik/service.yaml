@@ -6,7 +6,7 @@ metadata:
 spec:
   ports:
     - port: 2283
-      targetPort: 2283
+      targetPort: 443
   clusterIP: None
 ---
 apiVersion: v1
