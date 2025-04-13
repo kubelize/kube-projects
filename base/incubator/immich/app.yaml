@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: immich
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+  sources:
+    - repoURL: registry-1.docker.io/bitnamicharts
+      path: postgresql
+      targetRevision: 16.6.3
+      chart: postgresql
+    - repoURL: ghcr.io/immich-app
+      targetRevision: 0.9.2
+      chart: immich
+    - repoURL: https://github.com/kubelize/kube-projects
+      targetRevision: dev
+      ref: values
