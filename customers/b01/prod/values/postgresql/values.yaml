@@ -8,7 +8,7 @@ global:
     auth:
       username: immich
       database: immich
-      password: {{ printf "ServerPassword: %s\nWebUIPassword: %s" (randAlphaNum 32) (randAlphaNum 32) | b64enc | quote }}
+      password: {{ (randAlphaNum 32 | printf "%s%s" (randAlphaNum 32)) | b64enc | quote }}
 primary:
   containerSecurityContext:
     readOnlyRootFilesystem: false
