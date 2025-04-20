@@ -4,7 +4,7 @@ metadata:
   name: keycloak
   namespace: flux-system
 spec:
-  path: 00_appsincubator/keycloak/modules/
+  path: 00_apps/incubator/keycloak/modules/
   interval: 1h0m0s
   retryInterval: 0h30m0s
   approvePlan: auto

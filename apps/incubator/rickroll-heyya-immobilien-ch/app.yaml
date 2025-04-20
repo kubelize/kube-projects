@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: appsincubator/rickroll-heyya-immobilien-ch/deploy
+      path: apps/incubator/rickroll-heyya-immobilien-ch/deploy
       targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc

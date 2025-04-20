@@ -3,7 +3,7 @@ kind: Kustomization
 resources: 
 
 # incubator
-#- ../../appsincubator/pihole/
+#- ../../apps/incubator/pihole/
 
 # stable
 #- ../../apps/stable/nextcloud/

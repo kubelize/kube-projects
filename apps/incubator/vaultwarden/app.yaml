@@ -14,7 +14,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: appsincubator/vaultwarden/deploy
+      path: apps/incubator/vaultwarden/deploy
       targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc

@@ -20,7 +20,7 @@ spec:
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
       targetRevision: dev
-      path: appsincubator/home-assistant/deploy
+      path: apps/incubator/home-assistant/deploy
     - repoURL: http://pajikos.github.io/home-assistant-helm-chart/
       targetRevision:  0.2.86
       chart: home-assistant

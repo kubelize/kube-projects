@@ -4,7 +4,7 @@ metadata:
   name: helloworld-tf
   namespace: flux-system
 spec:
-  path: 00_appsincubator/helloworld/modules/
+  path: 00_apps/incubator/helloworld/modules/
   interval: 1m
   approvePlan: auto
   sourceRef:
