@@ -47,6 +47,8 @@ immich:
 redis:
   enabled: true
   architecture: standalone
+  primary:
+    resourcesPreset: "small"
   auth:
     enabled: false
 
