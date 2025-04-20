@@ -6,9 +6,7 @@ global:
     allowInsecureImages: true
   postgresql:
     auth:
-      username: immich
       database: immich
-      password: {{ (randAlphaNum 32 | printf "%s%s" (randAlphaNum 32)) | b64enc | quote }}
 primary:
   containerSecurityContext:
     readOnlyRootFilesystem: false
