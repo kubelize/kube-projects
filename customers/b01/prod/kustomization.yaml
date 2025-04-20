@@ -3,7 +3,7 @@ kind: Kustomization
 resources: 
 
 # incubator
-- ../../../apps/incubator/immich/
+- ../../../apps/stable/immich/
 
 # stable
 
