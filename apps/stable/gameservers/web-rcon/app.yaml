@@ -14,7 +14,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: appsstable/gameservers/web-rcon/deploy
+      path: apps/stable/gameservers/web-rcon/deploy
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc

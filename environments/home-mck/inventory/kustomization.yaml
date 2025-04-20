@@ -3,7 +3,7 @@ kind: Kustomization
 resources: 
 
 - ../../../addons/argocd/repositories/
-- ../../../appsstable/gameservers/web-rcon/
+- ../../../apps/stable/gameservers/web-rcon/
 - ../../../customers/b01a/
 - ../../../customers/b01/
 - ../../../customers/b02/

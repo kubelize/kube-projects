@@ -6,11 +6,11 @@ resources:
 #- ../../appsincubator/pihole/
 
 # stable
-#- ../../appsstable/nextcloud/
-- ../../appsstable/gameservers/minecraft/vanilla/
-#- ../../appsstable/gameservers/minecraft/atm9/
-#- ../../appsstable/gameservers/minecraft/rlcraft/
-#- ../../appsstable/gameservers/web-rcon/
+#- ../../apps/stable/nextcloud/
+- ../../apps/stable/gameservers/minecraft/vanilla/
+#- ../../apps/stable/gameservers/minecraft/atm9/
+#- ../../apps/stable/gameservers/minecraft/rlcraft/
+#- ../../apps/stable/gameservers/web-rcon/
 
 namePrefix: "b01a-"
 

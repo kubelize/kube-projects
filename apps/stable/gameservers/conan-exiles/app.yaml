@@ -7,7 +7,7 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: appsstable/gameservers/conan-exiles/deployment
+      path: apps/stable/gameservers/conan-exiles/deployment
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
