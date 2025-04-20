@@ -9,10 +9,21 @@ spec:
   tls:
   - hosts:
     - immich.mckensy.xyz
+    - immich.kubelize.com
     secretName: immich-tls
   ingressClassName: nginx
   rules:
   - host: immich.mckensy.xyz
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: b01-immich-prod-server
+            port:
+              number: 2283
+  - host: immich.kubelize.com
     http:
       paths:
       - path: /
