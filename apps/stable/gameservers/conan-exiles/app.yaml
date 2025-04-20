@@ -1,21 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: web-rcon
+  name: ce-server
   namespace: argocd
 spec:
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: false
-      allowEmpty: false
-    syncOptions:
-      - CreateNamespace=true
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: base/stable/gameservers/web-rcon/deploy
+      path: appsstable/gameservers/conan-exiles/deployment
       targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: web-rcon
+    namespace: ce-server

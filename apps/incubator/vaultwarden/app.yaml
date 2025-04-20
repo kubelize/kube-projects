@@ -1,14 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: test-nginx
+  name: vaultwarden
   namespace: argocd
 spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: 00_base/incubator/test-nginx/deploy
+      path: appsincubator/vaultwarden/deploy
       targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: test-nginx
+    namespace: vaultwarden

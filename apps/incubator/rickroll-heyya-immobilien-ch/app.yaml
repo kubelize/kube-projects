@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ce-server
+  name: rickroll-heyya-immobilien-ch
   namespace: argocd
 spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: base/stable/gameservers/conan-exiles/deployment
-      targetRevision: dev
+      path: appsincubator/rickroll-heyya-immobilien-ch/deploy
+      targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: ce-server
+    namespace: rickroll-heyya-immobilien-ch

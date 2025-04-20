@@ -3,14 +3,14 @@ kind: Kustomization
 resources: 
 
 # incubator
-#- ../../base/incubator/pihole/
+#- ../../appsincubator/pihole/
 
 # stable
-#- ../../base/stable/nextcloud/
-- ../../base/stable/gameservers/minecraft/vanilla/
-#- ../../base/stable/gameservers/minecraft/atm9/
-#- ../../base/stable/gameservers/minecraft/rlcraft/
-#- ../../base/stable/gameservers/web-rcon/
+#- ../../appsstable/nextcloud/
+- ../../appsstable/gameservers/minecraft/vanilla/
+#- ../../appsstable/gameservers/minecraft/atm9/
+#- ../../appsstable/gameservers/minecraft/rlcraft/
+#- ../../appsstable/gameservers/web-rcon/
 
 namePrefix: "b01a-"
 

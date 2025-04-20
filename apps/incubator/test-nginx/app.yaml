@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rickroll-heyya-immobilien-ch
+  name: test-nginx
   namespace: argocd
 spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: base/incubator/rickroll-heyya-immobilien-ch/deploy
+      path: 00_appsincubator/test-nginx/deploy
       targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
-    namespace: rickroll-heyya-immobilien-ch
+    namespace: test-nginx

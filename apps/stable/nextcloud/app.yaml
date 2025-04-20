@@ -17,7 +17,7 @@ spec:
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
       targetRevision: dev
-      path: base/stable/nextcloud/deploy
+      path: appsstable/nextcloud/deploy
     - repoURL: https://nextcloud.github.io/helm/
       targetRevision: 6.6.2
       chart: nextcloud

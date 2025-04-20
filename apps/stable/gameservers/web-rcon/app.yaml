@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: vaultwarden
+  name: web-rcon
   namespace: argocd
 spec:
   syncPolicy:
@@ -14,8 +14,8 @@ spec:
   project: default
   sources:
     - repoURL: https://github.com/kubelize/kube-projects
-      path: base/incubator/vaultwarden/deploy
-      targetRevision: HEAD
+      path: appsstable/gameservers/web-rcon/deploy
+      targetRevision: dev
   destination:
     server: https://kubernetes.default.svc
-    namespace: vaultwarden
+    namespace: web-rcon
