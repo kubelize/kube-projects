@@ -41,3 +41,25 @@ subsets:
       - ip: 144.2.66.218
     ports:
       - port: 33334
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: atm9-minecraft
+  namespace: traefik
+spec:
+  ports:
+    - port: 42069
+      targetPort: 42069
+  clusterIP: None
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: atm9-minecraft-prod
+  namespace: traefik
+subsets:
+  - addresses:
+      - ip: 144.2.66.218
+    ports:
+      - port: 42069
