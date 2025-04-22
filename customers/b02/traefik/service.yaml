@@ -56,7 +56,7 @@ spec:
 apiVersion: v1
 kind: Endpoints
 metadata:
-  name: atm9-minecraft-prod
+  name: atm9-minecraft
   namespace: traefik
 subsets:
   - addresses:
