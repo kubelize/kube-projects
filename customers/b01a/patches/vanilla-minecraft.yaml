@@ -35,7 +35,7 @@ spec:
             cpu: 6000m
             memory: 8192Mi
         nodeSelector:
-          kubernetes.io/hostname: "mck-wk3"
+          kubernetes.io/hostname: "mck-wk1"
           
 
           
