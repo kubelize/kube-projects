@@ -43,11 +43,12 @@ spec:
               service:
                 enabled: true
                 embedded: false
+                type: ClusterIP 
                 port: 8100
                 targetPort: 8100
               ingress:
                 ingressClassName: nginx
-                enabled: false
+                enabled: true
                 hosts:
                   - name: minecraft.icykhaye.xyz
                     path: /
