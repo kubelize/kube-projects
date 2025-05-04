@@ -49,13 +49,15 @@ spec:
               ingress:
                 ingressClassName: nginx
                 enabled: true
+                annotations:
+                  cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
                 hosts:
-                  - name: minecraft.icykhaye.xyz
+                  - name: map.icykhaye.xyz
                     path: /
                 tls:
                   - secretName: map-tls
                     hosts:
-                      - minecraft.icykhaye.xyz
+                      - map.icykhaye.xyz
         resources:
           requests:
             cpu: 2000m
