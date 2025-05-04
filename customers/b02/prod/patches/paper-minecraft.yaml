@@ -22,6 +22,7 @@ spec:
           motd: "§b❄ work in progress §b❄"
           maxTickTime: 60000
           difficulty: normal
+          levelSeed: "7830518263619659759"
           whitelist: McKency, icykhaye, Moffoso
           icon: "https://raw.githubusercontent.com/kubelize/kube-projects/refs/heads/dev/environments/home-mck/inventory/src/assets/minecraft-icyk-snow-icon.png"
           viewDistance: 12
