@@ -19,10 +19,9 @@ spec:
         serviceAnnotations:
           "lbipam.cilium.io/ips": "192.168.1.238"
         minecraftServer:
-          motd: §b❄
+          motd: "§b❄ work in progress §b❄"
           maxTickTime: 60000
           difficulty: normal
-          levelSeed: "757067671151835873"
           whitelist: McKency, icykhaye, Moffoso
           icon: "https://raw.githubusercontent.com/kubelize/kube-projects/refs/heads/dev/environments/home-mck/inventory/src/assets/minecraft-icyk-snow-icon.png"
           viewDistance: 12
@@ -36,6 +35,6 @@ spec:
             cpu: 4000m
             memory: 8192Mi
         nodeSelector:
-          kubernetes.io/hostname: "mck-wk1"
+          kubernetes.io/hostname: "mck-wk2"
 
           
