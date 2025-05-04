@@ -27,15 +27,15 @@ spec:
           viewDistance: 12
           memory: "6144M"
           jvmXXOpts: "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true"
-          # pluginUrl:
-          #   - https://hangar.papermc.io/ViaVersion/ViaVersion
-          #   - https://hangar.papermc.io/pop4959/Chunky
-          #   - https://hangar.papermc.io/GriefPrevention/GriefPrevention
-          #   - https://hangar.papermc.io/EssentialsX/Essentials
-          #   - https://hangar.papermc.io/Imperialroma10/FishRewards
-          #   - https://hangar.papermc.io/Sprax/BetterChairs
-          #   - https://hangar.papermc.io/Imperialroma10/Timber
-          #   - https://hangar.papermc.io/Blue/BlueMap
+          pluginUrl:
+            - https://hangar.papermc.io/ViaVersion/ViaVersion
+            - https://hangar.papermc.io/pop4959/Chunky
+            - https://hangar.papermc.io/GriefPrevention/GriefPrevention
+            - https://hangar.papermc.io/EssentialsX/Essentials
+            - https://hangar.papermc.io/Imperialroma10/FishRewards
+            - https://hangar.papermc.io/Sprax/BetterChairs
+            - https://hangar.papermc.io/Imperialroma10/Timber
+            - https://hangar.papermc.io/Blue/BlueMap
           extraPorts:
             - name: bluemap
               containerPort: 8100
