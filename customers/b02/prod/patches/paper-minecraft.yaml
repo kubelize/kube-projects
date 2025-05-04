@@ -54,16 +54,10 @@ spec:
                 hosts:
                   - name: map.icykhaye.xyz
                     path: /
-                  - name: mc.icykhaye.xyz
-                    path: /
-                  - name: minecraft.icykhaye.xyz
-                    path: /
                 tls:
                   - secretName: map-tls
                     hosts:
                       - map.icykhaye.xyz
-                      - mc.icykhaye.xyz
-                      - minecraft.icykhaye.xyz
         resources:
           requests:
             cpu: 2000m
