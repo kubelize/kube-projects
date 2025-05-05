@@ -18,6 +18,9 @@ spec:
       valuesObject:
         serviceAnnotations:
           "lbipam.cilium.io/ips": "192.168.1.237"
+        persistence:
+          dataDir:
+            Size: 100Gi
         minecraftServer:
           motd: "§b❄ work in progress §b❄"
           maxTickTime: 60000
