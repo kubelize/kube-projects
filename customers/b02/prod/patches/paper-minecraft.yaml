@@ -41,6 +41,8 @@ spec:
             - https://hangarcdn.papermc.io/plugins/Blue/BlueMap/versions/5.7/PAPER/bluemap-5.7-paper.jar
             - https://hangarcdn.papermc.io/plugins/NichoGX/DiscordRoleSync/versions/2.3.2/PAPER/discord_role_sync-2.3.2.jar
             - https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar
+            - https://cdn.modrinth.com/data/s86X568j/versions/asaBBItO/ChunkyBorder-Bukkit-1.2.23.jar
+            - https://cdn.modrinth.com/data/6G0lCDWV/versions/x8k2WB8a/BlueMap-BannerMarker.jar
           extraPorts:
             - name: bluemap
               containerPort: 8100
