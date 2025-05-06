@@ -43,9 +43,6 @@ spec:
             - https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar
             - https://cdn.modrinth.com/data/s86X568j/versions/asaBBItO/ChunkyBorder-Bukkit-1.2.23.jar
             - https://cdn.modrinth.com/data/6G0lCDWV/versions/x8k2WB8a/BlueMap-BannerMarker.jar
-            - https://raw.githubusercontent.com/TechnicJelle/BlueMapWebAddons/refs/heads/main/watermark/BlueMapWatermark.css
-            - https://raw.githubusercontent.com/TechnicJelle/BlueMapWebAddons/refs/heads/main/watermark/BlueMapWatermark.js
-            - https://github.com/TechnicJelle/BlueMapWebAddons/blob/main/custom-sidebar-button/BlueMapCustomSidebarButton.js
           extraPorts:
             - name: bluemap
               containerPort: 8100
