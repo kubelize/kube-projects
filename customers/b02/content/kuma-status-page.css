@@ -1,0 +1,328 @@
+:root {
+    /* Base theme colors */
+    --color-black: #4c5a65;           /* Frosty charcoal */
+    --color-green: #a8d5ba;           /* Icy mint */
+    --color-blue: #5bc0f8;            /* Ice blue */
+    --color-teal: #98e2e2;            /* Glacial teal */
+    --color-yellow: #d7eafd;          /* Pale icy yellow */
+    --color-orange: #b0dfff;          /* Cool pastel orange (very muted) */
+    --color-red: #ff6b6b;             /* Frosty coral red */
+    --color-gray: #cdd9e5;            /* Cool light gray */
+  
+    --body-color: #e6f1f5;            /* Snow white text color */
+    --body-bg: #f7fbfd;               /* Snowy background */
+    --heading-color: #1b2b34;         /* Deep frost blue */
+    --secondary-color: var(--color-gray);
+  
+    --block-bg: #ecf7fb;              /* Light ice background */
+  
+    /* Incident block colors */
+    --incident-color: #1b2b34;
+    --incident-info-bg: var(--color-teal);
+    --incident-warning-bg: var(--color-yellow);
+    --incident-danger-bg: var(--color-red);
+    --incident-primary-bg: var(--color-green);
+    --incident-light-bg: var(--color-gray);
+    --incident-dark-bg: var(--color-black);
+  
+    /* Main status block colors */
+    --overall-status-color: #1b2b34;
+    --overall-status-ok-bg: var(--color-green);
+    --overall-status-warning-bg: var(--color-yellow);
+    --overall-status-danger-bg: var(--color-red);
+    --overall-status-maintenance-bg: var(--color-blue);
+  
+    /* Maintenance block colors */
+    --maintenance-color: var(--color-blue);
+    --maintenance-bg: #e3f4fa;
+  
+    /* Timeslot in the maintenance block */
+    --timeslot-color: #3ca9e2;
+    --timeslot-bg: rgba(91, 192, 248, 0.15);
+    --timeslot-border-color: rgba(91, 192, 248, 0.35);
+  
+    /* Uptime percentage color */
+    --badge-color: #6d8299;
+  
+    /* HP bar beat */
+    --beat-ok-bg: var(--color-green);
+    --beat-empty-bg: var(--color-gray);
+    --beat-down-bg: var(--color-red);
+    --beat-pending-bg: var(--color-yellow);
+    --beat-maintenance-bg: var(--color-blue);
+  
+    /* Time under HP bar */
+    --word-color: #6d8299;
+  
+    /* Layout */
+    --min-item-width: 32ch;
+    --max-item-width: 1fr;
+  
+    /* Dark mode override */
+    .dark {
+      --body-color: #dceaf3;
+      --body-bg: #0e141a;
+      --heading-color: #fff;
+      --block-bg: #1e2a33;
+      --maintenance-bg: rgba(91, 192, 248, 0.07);
+    }
+  }
+  
+  
+  body {
+    background-color: var(--body-bg) !important;
+  }
+  
+  .container {
+    width: 97.5%;
+    max-width: 54rem;
+  }
+  
+  /* Center the logo */
+  .logo-wrapper {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  /* Remove the title adjacent to the logo */
+  span[data-v-7d4a7f28] {
+    display: none;
+  }
+  
+  /* Fix vertical margin of admin buttons on mobile */
+  .mb-4[data-v-b8247e57]:has(.btn-info) {
+    margin-bottom: 2.5rem !important;
+  
+    div {
+      gap: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+    
+      & button {
+        margin: 0 !important;
+      }
+    }
+  }
+  
+  /* Incident block */
+  .incident {
+    margin-bottom: 1rem !important;
+    border-radius: 1rem;
+    color: var(--incident-color) !important;
+  
+    &.bg-info {
+      background-color: var(--incident-info-bg) !important;
+    }
+  
+    &.bg-warning {
+      background-color: var(--incident-warning-bg) !important;
+    }
+  
+    &.bg-danger {
+      background-color: var(--incident-danger-bg) !important;
+    }
+  
+    &.bg-primary {
+      background-color: var(--incident-primary-bg) !important;
+    }
+  
+    &.bg-light {
+      background-color: var(--incident-light-bg) !important;
+    }
+  
+    &.bg-dark {
+      background-color: var(--incident-dark-bg) !important;
+    }
+  }
+  
+  /* Main status block */
+  .overall-status {
+    display: block;
+    margin-bottom: 1rem !important;
+    padding: 1rem 1.5rem !important;
+    border-radius: 1rem;
+    color: var(--overall-status-color);
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+    box-shadow: none;
+  
+    &:has(.ok) {
+      background-color: var(--overall-status-ok-bg) !important;
+    }
+  
+    &:has(.warning) {
+      background-color: var(--overall-status-warning-bg) !important;
+    }
+  
+    &:has(.danger) {
+      background-color: var(--overall-status-danger-bg) !important;
+    }
+  
+    &:has(.status-maintenance) {
+      background-color: var(--overall-status-maintenance-bg) !important;
+    }
+  
+    svg {
+      display: none;
+    }
+  }
+  
+  /* Maintenance block */
+  .shadow-box.bg-maintenance {
+    margin-top: 1rem !important;
+    padding: 1.5rem !important;
+    border-radius: 1rem;
+    color: var(--maintenance-color) !important;
+    background-color: var(--maintenance-bg) !important;
+    box-shadow: none !important;
+  }
+  
+  /* Timeslot in the maintenance block */
+  .timeslot {
+    border: 1px solid var(--timeslot-border-color);
+    border-radius: 2rem;
+    color: var(--timeslot-color) !important;
+    background-color: var(--timeslot-bg) !important;
+  }
+  
+  /* Description */
+  div > .alert-heading.p-2 {
+    color: var(--body-color);
+    text-align: center;
+  }
+  
+  /* Monitor group title */
+  .group-title {
+    color: var(--heading-color);
+    font-weight: 600 !important;
+    font-size: 1.5rem !important;
+  }
+  
+  /* Monitor group */
+  .shadow-box.monitor-list {
+    margin-top: 1rem !important;
+    padding: 0;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  
+    & > .monitor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(var(--min-item-width), var(--max-item-width)));
+      grid-gap: 1rem;
+    }
+  }
+  
+  /* Monitor item */
+  .item {
+    padding: 1.25rem 1.25rem 1rem !important;
+    border-radius: 1rem !important;
+    background-color: var(--block-bg);
+  
+    & > .row {
+      flex-direction: column;
+  
+      & > div {
+        width: 100%;
+      }
+    }
+  
+    &:hover {
+      background-color: var(--block-bg) !important;
+    }
+  }
+  
+  /* Correct behavior in a strange way */
+  @media (max-width: 768px) {
+    :root {
+      --min-item-width: 26ch;
+    }
+  }
+  
+  /* Monitor name and badge container */
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  
+  /* Monitor name */
+  .item-name {
+    padding-right: 0 !important;
+    padding-left: 4px !important;
+    overflow: hidden;
+    color: var(--heading-color);
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Uptime percentage badge (now just text) */
+  .badge {
+    all: unset;
+    order: 2;
+    padding-right: 2px !important;
+    color: var(--badge-color) !important;
+    background-color: transparent !important;
+  }
+  
+  /* Hmm... */
+  @media (max-width: 600px) {
+    .badge {
+      padding-right: 4px !important;
+    }
+  }
+  
+  /* Extra vertical indentation */
+  .extra-info {
+    display: none !important;
+  }
+  
+  /* HP bar and time container */
+  .wrap {
+    padding: 4px 2px !important;
+  }
+  
+  /* Beat of HP bar */
+  .beat {
+    height: 1.5rem !important;
+    background-color: var(--beat-ok-bg) !important;
+  
+    &.empty {
+      background-color: var(--beat-empty-bg) !important;
+    }
+  
+    &.down {
+      background-color: var(--beat-down-bg) !important;
+    }
+  
+    &.pending {
+      background-color: var(--beat-pending-bg) !important;
+    }
+  
+    &.maintenance {
+      background-color: var(--beat-maintenance-bg) !important;
+    }
+  }
+  
+  /* Time under the HP bar */
+  .word {
+    padding-right: 2px !important;
+    padding-left: 2px !important;
+    color: var(--word-color) !important;
+  }
+  
+  /* Custom footer and Uptime Kuma branding */
+  footer p,
+  footer p a {
+    color: var(--secondary-color) !important;
+  }
+  
+  /* Remove a refresh timer.
+     Comment "display: none" to return */
+  .refresh-info {
+    display: none;
+    opacity: 1 !important;
+    color: var(--secondary-color);
+  }
+  
+  
