@@ -189,7 +189,7 @@ service:
     https: 443
 
 ingress:
-  enabled: false
+  enabled: true
   pathType: ImplementationSpecific
   hostname: icykhaye.xyz
   path: /
