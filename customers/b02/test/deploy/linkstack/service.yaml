@@ -7,9 +7,6 @@ spec:
     app: linkstack
   ports:
     - name: http
-      port: 8080
+      port: 80
       targetPort: http
-    - name: https
-      port: 8443
-      targetPort: https
   type: ClusterIP
