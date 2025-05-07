@@ -102,23 +102,7 @@ podAffinityPreset: ""
 ## Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity
 ##
 podAntiAffinityPreset: soft
-## Node affinity preset
-## Ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity
-##
-nodeAffinityPreset:
-  ## @param nodeAffinityPreset.type Node affinity preset type. Ignored if `affinity` is set. Allowed values: `soft` or `hard`
-  ##
-  type: ""
-  ## @param nodeAffinityPreset.key Node label key to match. Ignored if `affinity` is set
-  ##
-  key: ""
-  ## @param nodeAffinityPreset.values Node label values to match. Ignored if `affinity` is set
-  ## E.g.
-  ## values:
-  ##   - e2e-az1
-  ##   - e2e-az2
-  ##
-  values: []
+
 ## @param affinity Affinity for pod assignment
 ## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
 ## NOTE: podAffinityPreset, podAntiAffinityPreset, and nodeAffinityPreset will be ignored when it's set
@@ -154,23 +138,9 @@ resources: {}
 ## @param containerPorts.https Ghost HTTPS container port
 ##
 containerPorts:
-  http: 2368
-  https: 2368
-## @param extraContainerPorts Optionally specify extra list of additional ports for WordPress container(s)
-## e.g:
-## extraContainerPorts:
-##   - name: myservice
-##     containerPort: 9090
-##
-extraContainerPorts: []
-## Configure Pods Security Context
-## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
-## @param podSecurityContext.enabled Enabled Ghost pods' Security Context
-## @param podSecurityContext.fsGroupChangePolicy Set filesystem group change policy
-## @param podSecurityContext.sysctls Set kernel settings using the sysctl interface
-## @param podSecurityContext.supplementalGroups Set filesystem extra groups
-## @param podSecurityContext.fsGroup Set Ghost pod's Security Context fsGroup
-##
+  http: 8080
+  https: 8443
+
 podSecurityContext:
   enabled: true
   fsGroupChangePolicy: Always
@@ -302,13 +272,8 @@ persistence:
 ## ref: https://github.com/bitnami/charts/blob/main/bitnami/mysql/values.yaml
 ##
 mysql:
-  ## @param mysql.enabled Deploy a MySQL server to satisfy the applications database requirements
-  ## To use an external database set this to false and configure the `externalDatabase.*` parameters
-  ##
   enabled: true
-  ## @param mysql.architecture MySQL architecture. Allowed values: `standalone` or `replication`
-  ##
-  architecture: standalone
+  architecture: replication
   ## MySQL Authentication parameters
   ## @param mysql.auth.rootPassword MySQL root password
   ## @param mysql.auth.database MySQL custom database
