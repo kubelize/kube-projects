@@ -4,7 +4,6 @@ image:
   tag: 5.118.1-debian-12-r0
   digest: ""
   pullPolicy: IfNotPresent
-
 ghostUsername: user
 ghostPassword: ""
 ## @param existingSecret Name of existing secret containing Ghost credentials
@@ -24,7 +23,6 @@ ghostHost: "icykhaye.xyz"
 ## @param ghostPath URL sub path where to server the Ghost application
 ##
 ghostPath: /
-
 ## @param allowEmptyPassword Allow the container to be started with blank passwords
 ##
 allowEmptyPassword: true
@@ -42,18 +40,6 @@ args: []
 ## extraEnvVars:
 ##   - name: FOO
 ##     value: "bar"
-##
-extraEnvVars: []
-## @param extraEnvVarsCM Name of existing ConfigMap containing extra env vars
-##
-extraEnvVarsCM: ""
-## @param extraEnvVarsSecret Name of existing Secret containing extra env vars
-##
-extraEnvVarsSecret: ""
-## @section Ghost deployment parameters
-
-## @param replicaCount Number of Ghost replicas to deploy
-## NOTE: ReadWriteMany PVC(s) are required if replicaCount > 1
 ##
 replicaCount: 1
 ## @param updateStrategy.type Ghost deployment strategy type
@@ -203,7 +189,7 @@ service:
     https: 443
 
 ingress:
-  enabled: true
+  enabled: false
   pathType: ImplementationSpecific
   hostname: icykhaye.xyz
   path: /
