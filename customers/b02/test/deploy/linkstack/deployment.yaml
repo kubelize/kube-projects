@@ -12,6 +12,13 @@ spec:
       labels:
         app: linkstack
     spec:
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command: ["sh", "-c", "mkdir -p /htdocs && chown -R 1000:1000 /htdocs"]
+          volumeMounts:
+            - mountPath: /htdocs
+              name: linkstack-storage
       containers:
         - name: linkstack
           image: linkstackorg/linkstack:latest
@@ -38,6 +45,9 @@ spec:
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
       volumes:
         - name: linkstack-storage
           persistentVolumeClaim:
