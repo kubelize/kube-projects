@@ -2,5 +2,9 @@
   path: "/spec/destination/namespace"
   value: b02-linkstack
 - op: replace
-  path: "/spec/sources/0/path"
-  value: customers/b02/test/deploy/linkstack/
+  path: "/spec/"
+  value:
+    sources:
+      - repoURL: https://github.com/kubelize/kube-projects
+        path: customers/b02/test/deploy/linkstack/
+        targetRevision: HEAD

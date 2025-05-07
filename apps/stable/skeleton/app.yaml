@@ -13,9 +13,4 @@ spec:
       - CreateNamespace=true
   project: default
   destination:
-    server: https://kubernetes.default.svc
-  sources:
-    - repoURL: example
-      path: example
-      targetRevision: 1.1.1
-      chart: example                         
+    server: https://kubernetes.default.svc                  
