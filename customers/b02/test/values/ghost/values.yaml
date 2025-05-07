@@ -241,9 +241,6 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
   tls: true
   selfSigned: false
-  secrets:
-    - name: icykhaye-tls
-      secretName: icykhaye-tls
   ingressClassName: "nginx"
 
 ## Persistence Parameters
