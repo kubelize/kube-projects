@@ -13,12 +13,14 @@ spec:
         app: linkstack
     spec:
       initContainers:
-        - name: init-permissions
-          image: busybox
-          command: ["sh", "-c", "mkdir -p /htdocs && chown -R 100:101 /htdocs"]
+        - name: copy-htdocs
+          image: linkstackorg/linkstack:latest
+          command: ["/bin/sh", "-c"]
+          args:
+            - cp -r /htdocs/* /tmp/htdocs/
           volumeMounts:
-            - mountPath: /htdocs
-              name: linkstack-storage
+            - name: htdocs
+              mountPath: /mnt/htdocs
       containers:
         - name: linkstack
           image: linkstackorg/linkstack:latest
@@ -45,10 +47,6 @@ spec:
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs
-          securityContext:
-            runAsUser: 100
-            runAsGroup: 101
-            fsGroup: 101
       volumes:
         - name: linkstack-storage
           persistentVolumeClaim:
