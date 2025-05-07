@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: ghost
+  namespace: argocd
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+  sources:
+    - repoURL: registry-1.docker.io/bitnamicharts
+      path: ghost
+      targetRevision: 22.2.16
+      chart: ghost
+    - repoURL: https://github.com/kubelize/kube-projects
+      targetRevision: dev
+      path: customers/example/stage/deploy
+    - repoURL: https://github.com/kubelize/kube-projects
+      targetRevision: dev
+      ref: values

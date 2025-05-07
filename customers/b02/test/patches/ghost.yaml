@@ -1,0 +1,11 @@
+- op: add
+  path: "/spec/destination/namespace"
+  value: b02-ghost
+- op: add
+  path: "/spec/sources/0/helm"
+  value:
+    valueFiles:
+      - $values/customers/b02/test/values/ghost/values.yaml
+- op: replace
+  path: "/spec/sources/1/path"
+  value: customers/b02/test/deploy
