@@ -45,9 +45,9 @@ spec:
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs
-          # securityContext:
-          #   runAsUser: 1000
-          #   runAsGroup: 1000
+          securityContext:
+            runAsUser: 100
+            runAsGroup: 101
       volumes:
         - name: linkstack-storage
           persistentVolumeClaim:
