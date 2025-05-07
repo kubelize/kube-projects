@@ -1,119 +1,12 @@
-# Copyright Broadcom, Inc. All Rights Reserved.
-# SPDX-License-Identifier: APACHE-2.0
 
-## @section Global parameters
-## Global Docker image parameters
-## Please, note that this will override the image parameters, including dependencies, configured to use the global value
-## Current available global Docker image parameters: imageRegistry, imagePullSecrets and storageClass
-
-## @param global.imageRegistry Global Docker image registry
-## @param global.imagePullSecrets Global Docker registry secret names as an array
-## @param global.defaultStorageClass Global default StorageClass for Persistent Volume(s)
-##
-global:
-  imageRegistry: ""
-  ## E.g.
-  ## imagePullSecrets:
-  ##   - myRegistryKeySecretName
-  ##
-  imagePullSecrets: []
-  defaultStorageClass: ""
-  ## Security parameters
-  ##
-  security:
-    ## @param global.security.allowInsecureImages Allows skipping image verification
-    allowInsecureImages: false
-  ## Compatibility adaptations for Kubernetes platforms
-  ##
-  compatibility:
-    ## Compatibility adaptations for Openshift
-    ##
-    openshift:
-      ## @param global.compatibility.openshift.adaptSecurityContext Adapt the securityContext sections of the deployment to make them compatible with Openshift restricted-v2 SCC: remove runAsUser, runAsGroup and fsGroup and let the platform use their allowed default IDs. Possible values: auto (apply if the detected running cluster is Openshift), force (perform the adaptation always), disabled (do not perform adaptation)
-      ##
-      adaptSecurityContext: auto
-## @section Common parameters
-
-## @param kubeVersion Override Kubernetes version
-##
-kubeVersion: ""
-## @param nameOverride String to partially override common.names.fullname
-##
-nameOverride: ""
-## @param fullnameOverride String to fully override common.names.fullname
-##
-fullnameOverride: ""
-## @param commonLabels Labels to add to all deployed objects
-##
-commonLabels: {}
-## @param commonAnnotations Annotations to add to all deployed objects
-##
-commonAnnotations: {}
-## @param clusterDomain Kubernetes cluster domain name
-##
-clusterDomain: cluster.local
-## @param extraDeploy Array of extra objects to deploy with the release
-##
-extraDeploy: []
-## @param usePasswordFiles Mount credentials as files instead of using environment variables
-##
-usePasswordFiles: true
-## Enable diagnostic mode in the deployment
-##
-diagnosticMode:
-  ## @param diagnosticMode.enabled Enable diagnostic mode (all probes will be disabled and the command will be overridden)
-  ##
-  enabled: false
-  ## @param diagnosticMode.command Command to override all containers in the deployment
-  ##
-  command:
-    - sleep
-  ## @param diagnosticMode.args Args to override all containers in the deployment
-  ##
-  args:
-    - infinity
-## @section Ghost Image parameters
-
-## Bitnami Ghost image
-## ref: https://hub.docker.com/r/bitnami/ghost/tags/
-## @param image.registry [default: REGISTRY_NAME] Ghost image registry
-## @param image.repository [default: REPOSITORY_NAME/ghost] Ghost image repository
-## @skip image.tag Ghost image tag (immutable tags are recommended)
-## @param image.digest Ghost image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag
-## @param image.pullPolicy Ghost image pull policy
-## @param image.pullSecrets Ghost image pull secrets
-## @param image.debug Enable image debug mode
-##
 image:
   registry: docker.io
   repository: bitnami/ghost
   tag: 5.118.1-debian-12-r0
   digest: ""
-  ## Specify a imagePullPolicy
-  ## ref: https://kubernetes.io/docs/concepts/containers/images/#pre-pulled-images
-  ##
   pullPolicy: IfNotPresent
-  ## Optionally specify an array of imagePullSecrets.
-  ## Secrets must be manually created in the namespace.
-  ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-  ## e.g:
-  ## pullSecrets:
-  ##   - myRegistryKeySecretName
-  ##
-  pullSecrets: []
-  ## Enable debug mode
-  ##
-  debug: false
-## @section Ghost Configuration parameters
-## Ghost settings based on environment variables
-## ref: https://github.com/bitnami/containers/tree/main/bitnami/ghost#configuration
 
-## @param ghostUsername Ghost user name
-##
 ghostUsername: user
-## @param ghostPassword Ghost user password
-## Defaults to a random 10-character alphanumeric string if not set
-##
 ghostPassword: ""
 ## @param existingSecret Name of existing secret containing Ghost credentials
 ## NOTE: Must contain key `ghost-password`
@@ -128,33 +21,11 @@ ghostEmail: user@example.com
 ghostBlogTitle: User's Blog
 ## @param ghostHost Ghost host to create application URLs
 ##
-ghostHost: ""
+ghostHost: "icykhaye.xyz"
 ## @param ghostPath URL sub path where to server the Ghost application
 ##
 ghostPath: /
-## @param ghostEnableHttps Configure Ghost to build application URLs using https
-##
-ghostEnableHttps: false
-## SMTP mail delivery configuration
-## ref: https://github.com/bitnami/containers/tree/main/bitnami/ghost/#smtp-configuration
-## @param smtpHost SMTP server host
-## @param smtpPort SMTP server port
-## @param smtpUser SMTP username
-## @param smtpPassword SMTP user password
-## @param smtpService SMTP service
-## @param smtpProtocol SMTP protocol (ssl or tls)
-##
-smtpHost: ""
-smtpPort: ""
-smtpUser: ""
-smtpPassword: ""
-smtpService: ""
-smtpProtocol: ""
-## @param smtpExistingSecret The name of an existing secret with SMTP credentials
-## NOTE: Must contain key `smtp-password`
-## NOTE: When it's set, the `smtpPassword` parameter is ignored
-##
-smtpExistingSecret: ""
+
 ## @param allowEmptyPassword Allow the container to be started with blank passwords
 ##
 allowEmptyPassword: true
@@ -204,11 +75,6 @@ priorityClassName: ""
 ## @param schedulerName Name of the k8s scheduler (other than default)
 ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
 ##
-schedulerName: ""
-## @param topologySpreadConstraints Topology Spread Constraints for pod assignment
-## https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/
-## The value is evaluated as a template
-##
 topologySpreadConstraints: []
 ## @param automountServiceAccountToken Mount Service Account token in pod
 ##
@@ -223,29 +89,6 @@ extraVolumes: []
 ## @param extraVolumeMounts Optionally specify extra list of additional volumeMounts for Ghost container(s)
 ##
 extraVolumeMounts: []
-## @param sidecars Add additional sidecar containers to the Ghost pod
-## e.g:
-## sidecars:
-##   - name: your-image-name
-##     image: your-image
-##     imagePullPolicy: Always
-##     ports:
-##       - name: portname
-##         containerPort: 1234
-##
-sidecars: []
-## @param initContainers Add additional init containers to the Ghost pods
-## ref: https://kubernetes.io/docs/concepts/workloads/pods/init-containers/
-## e.g:
-## initContainers:
-##  - name: your-image-name
-##    image: your-image
-##    imagePullPolicy: Always
-##    ports:
-##      - name: portname
-##        containerPort: 1234
-##
-initContainers: []
 ## Pod Disruption Budget configuration
 ## ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb
 ## @param pdb.create Enable/disable a Pod Disruption Budget creation
@@ -621,42 +464,7 @@ persistence:
   ## @param persistence.subPath The name of a volume's sub path to mount for persistence
   ##
   subPath: ""
-## 'volumePermissions' init container parameters
-## Changes the owner and group of the persistent volume mount point to runAsUser:fsGroup values
-##   based on the podSecurityContext/containerSecurityContext parameters
-##
-volumePermissions:
-  ## @param volumePermissions.enabled Enable init container that changes the owner/group of the PV mount point to `runAsUser:fsGroup`
-  ##
-  enabled: false
-  ## OS Shell + Utility image
-  ## ref: https://hub.docker.com/r/bitnami/os-shell/tags/
-  ## @param volumePermissions.image.registry [default: REGISTRY_NAME] OS Shell + Utility image registry
-  ## @param volumePermissions.image.repository [default: REPOSITORY_NAME/os-shell] OS Shell + Utility image repository
-  ## @skip volumePermissions.image.tag OS Shell + Utility image tag (immutable tags are recommended)
-  ## @param volumePermissions.image.digest OS Shell + Utility image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag
-  ## @param volumePermissions.image.pullPolicy OS Shell + Utility image pull policy
-  ## @param volumePermissions.image.pullSecrets OS Shell + Utility image pull secrets
-  ##
-  image:
-    registry: docker.io
-    repository: bitnami/os-shell
-    tag: 12-debian-12-r43
-    digest: ""
-    pullPolicy: IfNotPresent
-    ## Optionally specify an array of imagePullSecrets.
-    ## Secrets must be manually created in the namespace.
-    ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-    ## e.g:
-    ## pullSecrets:
-    ##   - myRegistryKeySecretName
-    ##
-    pullSecrets: []
-  ## Init container's resource requests and limits
-  ## ref: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
-  ## @param volumePermissions.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if volumePermissions.resources is set (volumePermissions.resources is recommended for production).
-  ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
-  ##
+
   resourcesPreset: "none"
   ## @param volumePermissions.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
@@ -775,73 +583,4 @@ externalDatabase:
   ## @param externalDatabase.sslCaFile External Database ssl CA filepath
   ##
   sslCaFile: ""
-## @section NetworkPolicy parameters
 
-## Network Policy configuration
-## ref: https://kubernetes.io/docs/concepts/services-networking/network-policies/
-##
-networkPolicy:
-  ## @param networkPolicy.enabled Specifies whether a NetworkPolicy should be created
-  ##
-  enabled: true
-  ## @param networkPolicy.allowExternal Don't require server label for connections
-  ## The Policy model to apply. When set to false, only pods with the correct
-  ## server label will have network access to the ports server is listening
-  ## on. When true, server will accept connections from any source
-  ## (with the correct destination port).
-  ##
-  allowExternal: true
-  ## @param networkPolicy.allowExternalEgress Allow the pod to access any range of port and all destinations.
-  ##
-  allowExternalEgress: true
-  ## @param networkPolicy.extraIngress [array] Add extra ingress rules to the NetworkPolicy
-  ## e.g:
-  ## extraIngress:
-  ##   - ports:
-  ##       - port: 1234
-  ##     from:
-  ##       - podSelector:
-  ##           - matchLabels:
-  ##               - role: frontend
-  ##       - podSelector:
-  ##           - matchExpressions:
-  ##               - key: role
-  ##                 operator: In
-  ##                 values:
-  ##                   - frontend
-  extraIngress: []
-  ## @param networkPolicy.extraEgress [array] Add extra ingress rules to the NetworkPolicy
-  ## e.g:
-  ## extraEgress:
-  ##   - ports:
-  ##       - port: 1234
-  ##     to:
-  ##       - podSelector:
-  ##           - matchLabels:
-  ##               - role: frontend
-  ##       - podSelector:
-  ##           - matchExpressions:
-  ##               - key: role
-  ##                 operator: In
-  ##                 values:
-  ##                   - frontend
-  ##
-  extraEgress: []
-  ## @param networkPolicy.ingressNSMatchLabels [object] Labels to match to allow traffic from other namespaces
-  ## @param networkPolicy.ingressNSPodMatchLabels [object] Pod labels to match to allow traffic from other namespaces
-  ##
-  ingressNSMatchLabels: {}
-  ingressNSPodMatchLabels: {}
-
-## Pods Service Account
-## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
-## @param serviceAccount.create Specifies whether a ServiceAccount should be created
-## @param serviceAccount.name Name of the service account to use. If not set and create is true, a name is generated using the fullname template.
-## @param serviceAccount.automountServiceAccountToken Automount service account token for the server service account
-## @param serviceAccount.annotations Annotations for service account. Evaluated as a template. Only used if `create` is `true`.
-##
-serviceAccount:
-  create: true
-  name: ""
-  automountServiceAccountToken: false
-  annotations: {}
