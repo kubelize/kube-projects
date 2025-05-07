@@ -24,9 +24,9 @@ spec:
             - name: SERVER_ADMIN
               value: "admin@example.xyz"
             - name: HTTP_SERVER_NAME
-              value: "www.example.xyz"
+              value: "icykhaye.xyz"
             - name: HTTPS_SERVER_NAME
-              value: "www.example.xyz"
+              value: "icykhaye.xyz"
             - name: LOG_LEVEL
               value: "info"
             - name: PHP_MEMORY_LIMIT
