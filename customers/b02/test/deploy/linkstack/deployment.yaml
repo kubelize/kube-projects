@@ -17,6 +17,7 @@ spec:
           image: linkstackorg/linkstack:latest
           ports:
             - containerPort: 80
+            - containerPort: 443
           env:
             - name: TZ
               value: "Europe/Berlin"
