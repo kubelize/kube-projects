@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkstack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linkstack
+  template:
+    metadata:
+      labels:
+        app: linkstack
+    spec:
+      containers:
+        - name: linkstack
+          image: linkstackorg/linkstack:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: TZ
+              value: "Europe/Berlin"
+            - name: SERVER_ADMIN
+              value: "admin@example.xyz"
+            - name: HTTP_SERVER_NAME
+              value: "www.example.xyz"
+            - name: HTTPS_SERVER_NAME
+              value: "www.example.xyz"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: PHP_MEMORY_LIMIT
+              value: "512M"
+            - name: UPLOAD_MAX_FILESIZE
+              value: "16M"
+          volumeMounts:
+            - name: linkstack-storage
+              mountPath: /htdocs
+      volumes:
+        - name: linkstack-storage
+          persistentVolumeClaim:
+            claimName: linkstack-pvc

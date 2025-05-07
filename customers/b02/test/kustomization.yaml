@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   # - ../../../apps/stable/gameservers/minecraft/paper/
-  - ../../../apps/incubator/websites/ghost/
+  - ../../../apps/stable/websites/skeleton/
 
 nameSuffix: "-test"
 
@@ -11,7 +11,7 @@ patches:
 #     target:
 #       kind: Application
 #       name: paper-minecraft
-    - path: ./patches/ghost.yaml
+    - path: ./patches/linkstack.yaml
       target:
         kind: Application
-        name: ghost
+        name: skeleton

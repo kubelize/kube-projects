@@ -1,0 +1,6 @@
+- op: add
+  path: "/spec/destination/namespace"
+  value: b02-linkstack
+- op: replace
+  path: "/spec/sources/0/path"
+  value: customers/b02/test/deploy/linkstack/
