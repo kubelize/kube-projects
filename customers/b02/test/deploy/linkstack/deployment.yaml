@@ -17,7 +17,7 @@ spec:
           image: linkstackorg/linkstack:latest
           command: ["/bin/sh", "-c"]
           args:
-            - cp -r /htdocs/* /tmp/htdocs/
+            - cp -r /htdocs/* /mnt/htdocs/
           volumeMounts:
             - name: htdocs
               mountPath: /mnt/htdocs
