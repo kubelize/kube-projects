@@ -15,7 +15,7 @@ spec:
       initContainers:
         - name: init-permissions
           image: busybox
-          command: ["sh", "-c", "mkdir -p /htdocs && chown -R 1000:1000 /htdocs"]
+          command: ["sh", "-c", "mkdir -p /htdocs && chown -R 100:101 /htdocs"]
           volumeMounts:
             - mountPath: /htdocs
               name: linkstack-storage
