@@ -199,8 +199,8 @@ service:
   ## @param service.ports.https Ghost service HTTPS port
   ##
   ports:
-    http: 2368
-    https: 2368
+    http: 80
+    https: 443
 
 ingress:
   enabled: true
