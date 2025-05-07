@@ -22,7 +22,7 @@ spec:
           dataDir:
             Size: 100Gi
         minecraftServer:
-          motd: "§b❄ work in progress §b❄"
+          motd: "§b❣ §f§oLet's have an §b§oice §f§otime together §b❣ §f§n§oS§b§n§ot§f§n§oa§b§n§oy§f§n§o f§b§n§or§f§n§oo§b§n§os§f§n§ot§b§n§oy§b ☺"
           maxTickTime: 60000
           difficulty: normal
           levelSeed: "7830518263619659759"
@@ -43,6 +43,8 @@ spec:
             - https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar
             - https://cdn.modrinth.com/data/s86X568j/versions/asaBBItO/ChunkyBorder-Bukkit-1.2.23.jar
             - https://cdn.modrinth.com/data/6G0lCDWV/versions/x8k2WB8a/BlueMap-BannerMarker.jar
+            - https://hangarcdn.papermc.io/plugins/Archy/AuraSkills/versions/2.3.3/PAPER/AuraSkills-2.3.3.jar
+            - https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.17/DecentHolograms-2.8.17.jar
           extraPorts:
             - name: bluemap
               containerPort: 8100
