@@ -1,13 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: linkstack-service
+  name: linkstack
 spec:
   selector:
     app: linkstack
   ports:
-    - port: 8080
-      targetPort: 80
-    - port: 8443
-      targetPort: 443
+    - name: http
+      port: 8080
+      targetPort: http
+    - name: https
+      port: 8443
+      targetPort: https
   type: ClusterIP

@@ -16,8 +16,10 @@ spec:
         - name: linkstack
           image: linkstackorg/linkstack:latest
           ports:
-            - containerPort: 80
-            - containerPort: 443
+            - name: http
+              containerPort: 80
+            - name: https
+              containerPort: 443
           env:
             - name: TZ
               value: "Europe/Berlin"
