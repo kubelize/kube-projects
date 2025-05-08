@@ -12,11 +12,6 @@ spec:
       labels:
         app: linkstack
     spec:
-      securityContext:
-        runAsUser: 100
-        runAsGroup: 101
-        fsGroup: 101
-        allowPrivilegeEscalation: false
       initContainers:
         - name: copy-htdocs
           image: linkstackorg/linkstack:latest
