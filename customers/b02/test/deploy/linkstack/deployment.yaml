@@ -18,8 +18,6 @@ spec:
           command: ["/bin/ash", "-c", "sleep 1 && \
           [ -z \"$(ls -A /htdocs_provisioning)\" ] && \
           cp -Ra /htdocs/. /htdocs_provisioning/ && \
-          mkdir -p /etc/apache2/ && \
-          chown apache:apache /etc/apache2/ && \
           chown -R apache:apache /htdocs_provisioning && \
           find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
           find /htdocs -type f -print0 | xargs -0 chmod 0644 && \
@@ -36,9 +34,10 @@ spec:
               containerPort: 80
             - name: https
               containerPort: 443
-          securityContext:
-            runAsUser: 100
-            runAsGroup: 101
+          # securityContext:
+          #   runAsUser: 100
+          #   runAsGroup: 101
+          #   fsGroup: 101
           livenessProbe:
             httpGet:
               path: /
