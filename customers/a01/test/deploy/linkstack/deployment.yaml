@@ -15,7 +15,7 @@ spec:
       initContainers:
         - name: copy-htdocs
           image: linkstackorg/linkstack:latest
-          command: ["/bin/ash", "-c", "sleep 1 && \
+          command: ["/bin/bash", "-c", "sleep 1 && \
           [ -z \"$(ls -A /htdocs_provisioning)\" ] && \
           cp -Ra /htdocs/. /htdocs_provisioning/ && \
           chown -R apache:apache /htdocs_provisioning && \
@@ -30,6 +30,7 @@ spec:
       containers:
         - name: linkstack
           image: kubelize/linkstack:0.0.8
+          command: ["/bin/bash", "-c", "sleep 3600"]
           ports:
             - name: http
               containerPort: 80
