@@ -13,9 +13,16 @@ spec:
         app: linkstack
     spec:
       initContainers:
+        - name: htdocs-permissions
+          image: linkstackorg/linkstack:latest
+          command: ["/bin/bash", "-c", "sleep 1 && \
+          chown -R apache:apache /htdocs"]
+          volumeMounts:
+            - name: linkstack-storage
+              mountPath: /htdocs
         - name: copy-htdocs
           image: linkstackorg/linkstack:latest
-          command: ["/bin/ash", "-c", "sleep 1 && \
+          command: ["/bin/bash", "-c", "sleep 1 && \
           [ -z \"$(ls -A /htdocs_provisioning)\" ] && \
           cp -Ra /htdocs/. /htdocs_provisioning/ && \
           chown -R apache:apache /htdocs_provisioning && \
@@ -26,13 +33,6 @@ spec:
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs_provisioning
-        - name: htdocs-permissions
-          image: linkstackorg/linkstack:latest
-          command: ["/bin/ash", "-c", "sleep 1 && \
-          chown -R apache:apache /htdocs"]
-          volumeMounts:
-            - name: linkstack-storage
-              mountPath: /htdocs
       containers:
         - name: linkstack
           image: kubelize/linkstack:0.0.8
