@@ -45,7 +45,6 @@ spec:
             - https://hangarcdn.papermc.io/plugins/Archy/AuraSkills/versions/2.3.3/PAPER/AuraSkills-2.3.3.jar
             - https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.17/DecentHolograms-2.8.17.jar
             - https://github.com/plan-player-analytics/Plan/releases/download/5.6.2965/Plan-5.6-build-2965.jar
-            - https://www.spigotmc.org/resources/togglepvp.44918/download?version=488699
           extraPorts:
             - name: plan
               containerPort: 8804
