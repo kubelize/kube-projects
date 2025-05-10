@@ -28,7 +28,7 @@ spec:
               mountPath: /htdocs_provisioning
       containers:
         - name: linkstack
-          image: kubelize/linkstack:0.0.6
+          image: kubelize/linkstack:0.0.8
           ports:
             - name: http
               containerPort: 80
