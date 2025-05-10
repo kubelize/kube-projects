@@ -17,20 +17,19 @@ spec:
           image: linkstackorg/linkstack:latest
           command: ["/bin/ash", "-c", "sleep 1 && \
           [ -z \"$(ls -A /htdocs_provisioning)\" ] && \
-          cp -Ra /htdocs/site/. /htdocs_provisioning/ && \
+          cp -Ra /htdocs/. /htdocs_provisioning/ && \
           chown -R apache:apache /htdocs_provisioning && \
-          chown -R apache:apache /htdocs/site && \
-          find /htdocs/site -type d -print0 | xargs -0 chmod 0755 && \
-          find /htdocs/site -type f -print0 | xargs -0 chmod 0644 && \
-          echo \"/htdocs/site was empty. Files copied to /htdocs/site.\" || \
-          echo \"/htdocs/site is not empty. No files copied.\""]
+          chown -R apache:apache /htdocs && \
+          find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
+          find /htdocs -type f -print0 | xargs -0 chmod 0644 && \
+          echo \"/htdocs was empty. Files copied to /htdocs.\" || \
+          echo \"/htdocs is not empty. No files copied.\""]
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs_provisioning
       containers:
         - name: linkstack
-          image: kubelize/linkstack:0.0.9
-          command: ["/bin/ash", "-c", "sleep 3000"]
+          image: kubelize/linkstack:0.0.8
           ports:
             - name: http
               containerPort: 80
@@ -75,7 +74,7 @@ spec:
               value: "16M"
           volumeMounts:
             - name: linkstack-storage
-              mountPath: /htdocs/site
+              mountPath: /htdocs
       volumes:
         - name: linkstack-storage
           persistentVolumeClaim:
