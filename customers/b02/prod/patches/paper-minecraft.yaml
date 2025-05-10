@@ -52,7 +52,7 @@ spec:
               service:
                 enabled: true
                 embedded: false
-                type: ClusterIP 
+                type: Loadbalancer 
                 port: 8804
                 targetPort: 8804
               ingress:
