@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: linkstack
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: linkstack.kubelize.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: linkstack
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - linkstack.kubelize.com
+      secretName: linkstack-tls

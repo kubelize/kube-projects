@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: linkstack
+spec:
+  selector:
+    app: linkstack
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+  type: ClusterIP
