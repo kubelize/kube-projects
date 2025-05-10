@@ -29,7 +29,7 @@ spec:
         - name: htdocs-permissions
           image: kubelize/linkstack:0.0.8
           command: ["/bin/ash", "-c", "sleep 1 && \
-          chown -R apache:apache /htdocs && \
+          chown -R apache:apache /htdocs"]
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs
