@@ -16,7 +16,6 @@ spec:
         - name: copy-htdocs
           image: linkstackorg/linkstack:latest
           command: ["/bin/ash", "-c", "sleep 1 && \
-          rm -r /lost+found && \
           [ -z \"$(ls -A /htdocs_provisioning)\" ] && \
           cp -Ra /htdocs/. /htdocs_provisioning/ && \
           chown -R apache:apache /htdocs_provisioning && \
@@ -30,7 +29,7 @@ spec:
               mountPath: /htdocs_provisioning
       containers:
         - name: linkstack
-          image: kubelize/linkstack:0.0.8
+          image: linkstackorg/linkstack:latest
           command: ["/bin/ash", "-c", "sleep 3600"]
           ports:
             - name: http
