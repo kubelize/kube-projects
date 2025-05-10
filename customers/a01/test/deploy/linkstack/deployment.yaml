@@ -29,7 +29,7 @@ spec:
               mountPath: /htdocs_provisioning
       containers:
         - name: linkstack
-          image: linkstackorg/linkstack:latest
+          image: kubelize/linkstack:0.0.8
           command: ["/bin/ash", "-c", "sleep 3600"]
           ports:
             - name: http
