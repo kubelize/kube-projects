@@ -55,6 +55,9 @@ spec:
                 type: ClusterIP 
                 port: 8804
                 targetPort: 8804
+              ingress:
+                ingressClassName: nginx
+                enabled: false
             - name: bluemap
               containerPort: 8100
               protocol: TCP
