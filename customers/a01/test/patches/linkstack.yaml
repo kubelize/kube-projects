@@ -1,9 +1,9 @@
 - op: add
   path: "/spec/destination/namespace"
-  value: b02-linkstack
+  value: a01-linkstack
 - op: replace
   path: "/spec/sources/0"
   value:
     repoURL: https://github.com/kubelize/kube-projects
-    path: customers/b02/test/deploy/linkstack/
+    path: customers/a01/test/deploy/linkstack/
     targetRevision: HEAD
