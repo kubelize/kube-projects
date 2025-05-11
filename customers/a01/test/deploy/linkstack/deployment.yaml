@@ -30,14 +30,12 @@ spec:
               else
                 echo "/htdocs_provisioning is not empty. No files copied."
               fi
-          securityContext:
-            runAsRoot: true
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs_provisioning
       containers:
         - name: linkstack
-          image: kubelize/linkstack:0.0.8
+          image: kubelize/linkstack:0.1.0
           # command: ["/bin/ash", "-c", "sleep 3600"]
           ports:
             - name: http
