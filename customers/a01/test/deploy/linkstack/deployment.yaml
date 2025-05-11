@@ -30,6 +30,7 @@ spec:
       containers:
         - name: linkstack
           image: kubelize/linkstack:0.0.8
+          command: ["/bin/ash", "-c", "sleep 3600"]
           ports:
             - name: http
               containerPort: 80
