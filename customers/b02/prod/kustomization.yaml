@@ -14,4 +14,4 @@ patches:
   - path: ./patches/linkstack.yaml
     target:
       kind: Application
-      name: linkstack
+      name: skeleton
