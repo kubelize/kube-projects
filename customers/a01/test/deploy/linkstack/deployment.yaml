@@ -14,7 +14,7 @@ spec:
     spec:
       initContainers:
         - name: copy-htdocs
-          image: kubelize/linkstack:0.0.8
+          image: linkstackorg/linkstack:latest
           command:
             - /bin/ash
             - -c
