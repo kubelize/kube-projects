@@ -16,21 +16,23 @@ spec:
         - name: copy-htdocs
           image: linkstackorg/linkstack:latest
           command: ["/bin/ash", "-c", "sleep 1 && \
-          [ -z \"$(ls -A /htdocs_provisioning)\" ] && \
-          cp -Ra /htdocs/. /htdocs_provisioning/ && \
-          chown -R apache:apache /htdocs_provisioning && \
-          chown -R apache:apache /htdocs && \
-          find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
-          find /htdocs -type f -print0 | xargs -0 chmod 0644 && \
-          echo \"/htdocs was empty. Files copied to /htdocs.\" || \
-          echo \"/htdocs is not empty. No files copied.\""]
+          if [ -z \"$(ls -A /htdocs_provisioning | grep -v '^lost+found$')\" ]; then \
+            find /htdocs -mindepth 1 -not -name 'lost+found' -exec cp -Ra {} /htdocs_provisioning/ \\; && \
+            chown -R apache:apache /htdocs_provisioning && \
+            chown -R apache:apache /htdocs && \
+            find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
+            find /htdocs -type f -print0 | xargs -0 chmod 0644 && \
+            echo \"/htdocs was empty. Files copied to /htdocs.\"; \
+          else \
+            echo \"/htdocs is not empty. No files copied.\"; \
+          fi"]
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs_provisioning
       containers:
         - name: linkstack
           image: kubelize/linkstack:0.0.8
-          command: ["/bin/ash", "-c", "sleep 3600"]
+          # command: ["/bin/ash", "-c", "sleep 3600"]
           ports:
             - name: http
               containerPort: 80
