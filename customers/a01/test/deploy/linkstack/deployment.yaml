@@ -14,18 +14,16 @@ spec:
     spec:
       initContainers:
         - name: copy-htdocs
-          image: linkstackorg/linkstack:latest
-          command: ["/bin/ash", "-c", "sleep 1 && \
-          if [ -z \"$(ls -A /htdocs_provisioning | grep -v '^lost+found$')\" ]; then \
-            find /htdocs -mindepth 1 -not -name 'lost+found' -exec cp -Ra {} /htdocs_provisioning/ \\; && \
-            chown -R apache:apache /htdocs_provisioning && \
-            chown -R apache:apache /htdocs && \
-            find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
-            find /htdocs -type f -print0 | xargs -0 chmod 0644 && \
-            echo \"/htdocs was empty. Files copied to /htdocs.\"; \
-          else \
-            echo \"/htdocs is not empty. No files copied.\"; \
-          fi"]
+          image: kubelize/linkstack:0.0.8
+          command: ["/bin/ash", "-c", "apk add --no-cache rsync && sleep 1 && \
+            if [ -z \"$(ls -A /htdocs_provisioning | grep -v '^lost+found$')\" ]; then \
+              rsync -a --exclude='lost+found' /htdocs/ /htdocs_provisioning/ && \
+              chown -R apache:apache /htdocs_provisioning && \
+              chown -R apache:apache /htdocs && \
+              find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
+              find /htdocs -type f -print0 | xargs -0 chmod 0644 &&
+          securityContext:
+            runAsRoot: true
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs_provisioning
