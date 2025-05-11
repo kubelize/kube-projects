@@ -15,25 +15,31 @@ spec:
       initContainers:
         - name: copy-htdocs
           image: linkstackorg/linkstack:latest
-          command: ["/bin/ash", "-c", "sleep 1 && \
-          [ -z \"$(ls -A /htdocs_provisioning)\" ] && \
-          cp -Ra /htdocs/. /htdocs_provisioning/ && \
-          chown -R apache:apache /htdocs_provisioning && \
-          find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
-          find /htdocs -type f -print0 | xargs -0 chmod 0644 && \
-          echo \"/htdocs was empty. Files copied to /htdocs.\" || \
-          echo \"/htdocs is not empty. No files copied.\""]
+          command:
+            - /bin/ash
+            - -c
+            - |
+              apk add --no-cache rsync && sleep 1 && \
+              if [ -z "$(ls -A /htdocs_provisioning | grep -v '^lost+found$')" ]; then
+                rsync -a --exclude='lost+found' /htdocs/ /htdocs_provisioning/ && \
+                chown -R apache:apache /htdocs_provisioning && \
+                chown -R apache:apache /htdocs && \
+                find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
+                find /htdocs -type f -print0 | xargs -0 chmod 0644 && \
+                echo "/htdocs was empty. Files copied to /htdocs_provisioning."
+              else
+                echo "/htdocs_provisioning is not empty. No files copied."
+              fi
           volumeMounts:
             - name: linkstack-storage
               mountPath: /htdocs_provisioning
       containers:
         - name: linkstack
-          image: linkstackorg/linkstack:latest
+          image: kubelize/linkstack:0.1.2
+          # command: ["/bin/ash", "-c", "sleep 3600"]
           ports:
             - name: http
               containerPort: 80
-            - name: https
-              containerPort: 443
           # securityContext:
           #   runAsUser: 100
           #   runAsGroup: 101
@@ -63,11 +69,7 @@ spec:
           env:
             - name: TZ
               value: "Europe/Berlin"
-            - name: SERVER_ADMIN
-              value: "admin@example.xyz"
             - name: HTTP_SERVER_NAME
-              value: "icykhaye.xyz"
-            - name: HTTPS_SERVER_NAME
               value: "icykhaye.xyz"
             - name: LOG_LEVEL
               value: "info"
