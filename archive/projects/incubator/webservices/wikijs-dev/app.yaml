@@ -10,7 +10,7 @@ spec:
     namespace: internal-wiki
   source:
     repoURL: https://charts.js.wiki
-    targetRevision: 2.2.21
+    targetRevision: 2.2.23
     chart: wiki
     helm:
       valuesObject: {}
