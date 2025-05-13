@@ -17,7 +17,7 @@ spec:
   sources:
     - repoURL: registry-1.docker.io/bitnamicharts
       path: ghost
-      targetRevision: 22.2.16
+      targetRevision: 23.0.0
       chart: ghost
     - repoURL: https://github.com/kubelize/kube-projects
       targetRevision: dev
