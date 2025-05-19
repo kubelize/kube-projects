@@ -18,6 +18,8 @@ spec:
       valuesObject:
         serviceAnnotations:
           "lbipam.cilium.io/ips": "192.168.1.237"
+        extraEnv:
+          MC_HEALTH_EXTRA_ARGS: "--use-proxy"
         persistence:
           dataDir:
             Size: 100Gi
@@ -47,6 +49,7 @@ spec:
             - https://github.com/plan-player-analytics/Plan/releases/download/5.6.2965/Plan-5.6-build-2965.jar
             - https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
             - https://download.luckperms.net/1581/bukkit/loader/LuckPerms-Bukkit-5.4.164.jar
+          externalTrafficPolicy: Local
           extraPorts:
             - name: plan
               containerPort: 8804
