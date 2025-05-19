@@ -19,7 +19,7 @@ spec:
         serviceAnnotations:
           "lbipam.cilium.io/ips": "192.168.1.238"
         minecraftServer:
-          motd: "§b❄ work in progress §b❄"
+          motd: "§r⚒️ exists purely for testing purposes §r⚒️"
           maxTickTime: 60000
           difficulty: normal
           levelSeed: "7830518263619659759"
@@ -33,33 +33,28 @@ spec:
             - https://hangarcdn.papermc.io/plugins/pop4959/Chunky/versions/1.4.36/PAPER/Chunky-Bukkit-1.4.36.jar
             - https://hangarcdn.papermc.io/plugins/GriefPrevention/GriefPrevention/versions/16.18.4/PAPER/GriefPrevention%2016.18.4.jar
             - https://mediafilez.forgecdn.net/files/6375/57/FishRewards-1.6.3.jar
-            - https://hangarcdn.papermc.io/plugins/Sprax/BetterChairs/versions/1.14.0/PAPER/BetterChairs-v1.14.0.jar
-            - https://mediafilez.forgecdn.net/files/6371/786/Timber-1.6.3.jar
-            - https://hangarcdn.papermc.io/plugins/Blue/BlueMap/versions/5.7/PAPER/bluemap-5.7-paper.jar
+            - https://hangarcdn.papermc.io/plugins/Gecolay/GSit/versions/2.3.2/PAPER/GSit-2.3.2.jar
             - https://hangarcdn.papermc.io/plugins/NichoGX/DiscordRoleSync/versions/2.3.2/PAPER/discord_role_sync-2.3.2.jar
             - https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar
+            - https://cdn.modrinth.com/data/s86X568j/versions/asaBBItO/ChunkyBorder-Bukkit-1.2.23.jar
+            - https://hangarcdn.papermc.io/plugins/Archy/AuraSkills/versions/2.3.3/PAPER/AuraSkills-2.3.3.jar
+            - https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.17/DecentHolograms-2.8.17.jar
+            - https://github.com/plan-player-analytics/Plan/releases/download/5.6.2965/Plan-5.6-build-2965.jar
+            - https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
+            - https://download.luckperms.net/1581/bukkit/loader/LuckPerms-Bukkit-5.4.164.jar
           extraPorts:
-            - name: bluemap
-              containerPort: 8100
+            - name: plan
+              containerPort: 8804
               protocol: TCP
               service:
                 enabled: true
                 embedded: false
                 type: ClusterIP 
-                port: 8100
-                targetPort: 8100
+                port: 8804
+                targetPort: 8804
               ingress:
                 ingressClassName: nginx
-                enabled: true
-                annotations:
-                  cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
-                hosts:
-                  - name: map.icykhaye.xyz
-                    path: /
-                tls:
-                  - secretName: map-tls
-                    hosts:
-                      - map.icykhaye.xyz
+                enabled: false
         resources:
           requests:
             cpu: 2000m
@@ -68,6 +63,6 @@ spec:
             cpu: 4000m
             memory: 8192Mi
         nodeSelector:
-          kubernetes.io/hostname: "mck-wk3"
+          kubernetes.io/hostname: "mck-wk1"
 
           
