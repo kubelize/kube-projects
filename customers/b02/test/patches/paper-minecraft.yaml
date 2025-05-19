@@ -18,8 +18,8 @@ spec:
       valuesObject:
         serviceAnnotations:
           "lbipam.cilium.io/ips": "192.168.1.238"
-        # extraEnv:
-        #   MC_HEALTH_EXTRA_ARGS: "--use-proxy"
+        extraEnv:
+          MC_HEALTH_EXTRA_ARGS: "--use-proxy"
         minecraftServer:
           motd: "§r⚒️ exists purely for testing purposes §r⚒️"
           maxTickTime: 60000
