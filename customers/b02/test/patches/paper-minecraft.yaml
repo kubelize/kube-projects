@@ -43,6 +43,8 @@ spec:
             - https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
             - https://download.luckperms.net/1581/bukkit/loader/LuckPerms-Bukkit-5.4.164.jar
           externalTrafficPolicy: Local
+          extraEnv:
+            MC_HEALTH_EXTRA_ARGS: "--use-proxy"
           extraPorts:
             - name: plan
               containerPort: 8804
