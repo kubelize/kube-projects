@@ -27,6 +27,7 @@ spec:
           viewDistance: 16
           memory: "6144M"
           jvmXXOpts: "-XX:MaxRAMPercentage=75 -XX:+AlwaysPreTouch -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -XX:+UnlockExperimentalVMOptions -XX:TargetSurvivorRatio=70 -XX:G1NewSizePercent=40 -XX:G1MaxNewSizePercent=50 -XX:InitiatingHeapOccupancyPercent=12 -XX:G1MixedGCLiveThresholdPercent=40"
+          externalTrafficPolicy: Local
         resources:
           requests:
             cpu: 2000m
