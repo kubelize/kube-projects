@@ -2,6 +2,7 @@ apiVersion: "cilium.io/v2"
 kind: CiliumNetworkPolicy
 metadata:
   name: allow-from-kubelize-npm
+  namespace: b02-paper-minecraft
 spec:
   endpointSelector:
     matchLabels:
