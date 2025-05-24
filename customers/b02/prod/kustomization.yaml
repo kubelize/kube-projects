@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - ../../../apps/stable/gameservers/minecraft/paper/
   - ../../../apps/stable/skeleton/
+  
+  - icys-realm/networkpolicy.yaml
 
 nameSuffix: "-prod"
 

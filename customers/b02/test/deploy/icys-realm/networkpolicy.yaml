@@ -1,0 +1,11 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: allow-from-kubelize-npm
+spec:
+  endpointSelector:
+    matchLabels:
+      app: b02-paper-minecraft-test-minecraft
+  ingress:
+    - fromCIDR:
+        - 188.245.246.78/32
