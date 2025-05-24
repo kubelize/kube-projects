@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
 
   - prod/
-  - test/app.yaml
+  - test/
 
 namePrefix: "b02-"
