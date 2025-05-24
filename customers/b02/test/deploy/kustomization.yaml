@@ -6,6 +6,7 @@ resources:
 
   - deploy/icys-realm/networkpolicy.yaml
 
+namePrefix: "b02-"
 nameSuffix: "-test"
 
 patches:

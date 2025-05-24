@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: b02-test
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://github.com/kubelize/kube-projects
+      path: customers/b02/test/deploy
+      targetRevision: dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
