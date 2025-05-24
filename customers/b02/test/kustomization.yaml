@@ -4,7 +4,7 @@ resources:
   - ../../../apps/stable/gameservers/minecraft/paper/
 #  - ../../../apps/stable/skeleton/
 
-  - icys-realm/networkpolicy.yaml
+  - deploy/icys-realm/networkpolicy.yaml
 
 nameSuffix: "-test"
 
