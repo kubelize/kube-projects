@@ -10,3 +10,7 @@ spec:
   ingress:
     - fromCIDR:
         - 188.245.246.78/32
+      toPorts:
+        - ports:
+            - port: "25565"
+              protocol: TCP
