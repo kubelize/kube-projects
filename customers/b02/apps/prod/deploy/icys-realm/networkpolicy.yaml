@@ -21,3 +21,6 @@ spec:
         - ports:
             - port: "25575"
               protocol: TCP
+        - ports:
+            - port: "8804"
+              protocol: TCP

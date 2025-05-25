@@ -55,6 +55,8 @@ spec:
               containerPort: 8804
               protocol: TCP
               service:
+                annotations:
+                  "lbipam.cilium.io/ips": "192.168.1.236"
                 enabled: true
                 embedded: false
                 type: LoadBalancer 
