@@ -18,3 +18,6 @@ spec:
         - ports:
             - port: "8100"
               protocol: TCP
+        - ports:
+            - port: "25575"
+              protocol: TCP
