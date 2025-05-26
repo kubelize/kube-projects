@@ -8,7 +8,7 @@ global:
     auth:
       database: immich
 primary:
-  resourcesPreset: "small"
+  resourcesPreset: "medium"
   containerSecurityContext:
     readOnlyRootFilesystem: false
   initdb:
