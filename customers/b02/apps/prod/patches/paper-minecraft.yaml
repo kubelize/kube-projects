@@ -37,7 +37,7 @@ spec:
             - https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.3.2/PAPER/ViaVersion-5.3.2.jar
             - https://hangarcdn.papermc.io/plugins/pop4959/Chunky/versions/1.4.36/PAPER/Chunky-Bukkit-1.4.36.jar
             - https://hangarcdn.papermc.io/plugins/GriefPrevention/GriefPrevention/versions/16.18.4/PAPER/GriefPrevention%2016.18.4.jar
-            - https://mediafilez.forgecdn.net/files/6375/57/FishRewards-1.6.3.jar
+            - https://mediafilez.forgecdn.net/files/6547/789/FishRewards-1.6.4.jar
             - https://hangarcdn.papermc.io/plugins/Gecolay/GSit/versions/2.3.2/PAPER/GSit-2.3.2.jar
             - https://hangarcdn.papermc.io/plugins/Blue/BlueMap/versions/5.7/PAPER/bluemap-5.7-paper.jar
             - https://hangarcdn.papermc.io/plugins/NichoGX/DiscordRoleSync/versions/2.3.2/PAPER/discord_role_sync-2.3.2.jar
@@ -47,7 +47,7 @@ spec:
             - https://hangarcdn.papermc.io/plugins/Archy/AuraSkills/versions/2.3.3/PAPER/AuraSkills-2.3.3.jar
             - https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.17/DecentHolograms-2.8.17.jar
             - https://github.com/plan-player-analytics/Plan/releases/download/5.6.2965/Plan-5.6-build-2965.jar
-            - https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
+            - https://github.com/EssentialsX/Essentials/releases/download/2.21.1/EssentialsX-2.21.1.jar
             - https://download.luckperms.net/1581/bukkit/loader/LuckPerms-Bukkit-5.4.164.jar
           externalTrafficPolicy: Local
           extraPorts:
