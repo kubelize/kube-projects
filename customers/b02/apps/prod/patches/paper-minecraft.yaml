@@ -49,6 +49,10 @@ spec:
             - https://github.com/plan-player-analytics/Plan/releases/download/5.6.2965/Plan-5.6-build-2965.jar
             - https://github.com/EssentialsX/Essentials/releases/download/2.21.1/EssentialsX-2.21.1.jar
             - https://download.luckperms.net/1581/bukkit/loader/LuckPerms-Bukkit-5.4.164.jar
+            - https://github.com/TechnicJelle/BlueMapPlayerControl/releases/download/v1.6/BlueMapPlayerControl-1.6.jar
+            - https://cdn.modrinth.com/data/a8UoyV2h/versions/vc0LhdlS/bmm-paper-2.1.10.jar
+            - https://github.com/LeBogoo/BluemapClaims/releases/download/v1.21.4-1.3/BluemapClaims-1.21.4-1.3.jar
+            - https://cdn.modrinth.com/data/gyVHmXm2/versions/9DByHGT5/PickupBuddingAmethyst-1.21-2.jar
           externalTrafficPolicy: Local
           extraPorts:
             - name: plan
