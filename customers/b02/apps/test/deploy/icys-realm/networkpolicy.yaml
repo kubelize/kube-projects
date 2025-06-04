@@ -14,3 +14,6 @@ spec:
         - ports:
             - port: "25565"
               protocol: TCP
+        - ports:
+            - port: "24454"
+              protocol: UDP
