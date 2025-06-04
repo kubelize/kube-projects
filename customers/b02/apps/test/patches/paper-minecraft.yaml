@@ -68,6 +68,9 @@ spec:
                 type: ClusterIP 
                 port: 24454
                 targetPort: 24454
+              ingress:
+                ingressClassName: nginx
+                enabled: false
         resources:
           requests:
             cpu: 2000m
