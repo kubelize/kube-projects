@@ -65,7 +65,7 @@ spec:
               service:
                 enabled: true
                 embedded: false
-                type: LoadBalancer 
+                type: ClusterIP 
                 port: 24454
                 targetPort: 24454
               ingress:
