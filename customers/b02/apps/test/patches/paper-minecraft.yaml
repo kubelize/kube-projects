@@ -44,6 +44,7 @@ spec:
             - https://github.com/plan-player-analytics/Plan/releases/download/5.6.2965/Plan-5.6-build-2965.jar
             - https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
             - https://download.luckperms.net/1581/bukkit/loader/LuckPerms-Bukkit-5.4.164.jar
+            - https://hangarcdn.papermc.io/plugins/henkelmax/SimpleVoiceChat/versions/bukkit-2.5.25/PAPER/voicechat-bukkit-2.5.25.jar
           externalTrafficPolicy: Local
           extraPorts:
             - name: plan
@@ -58,6 +59,15 @@ spec:
               ingress:
                 ingressClassName: nginx
                 enabled: false
+            - name: voip
+              containerPort: 24454
+              protocol: UDP
+              service:
+                enabled: true
+                embedded: false
+                type: ClusterIP 
+                port: 24454
+                targetPort: 24454
         resources:
           requests:
             cpu: 2000m
