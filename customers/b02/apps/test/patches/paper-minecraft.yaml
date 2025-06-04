@@ -64,8 +64,7 @@ spec:
               protocol: UDP
               service:
                 enabled: true
-                embedded: false
-                type: ClusterIP 
+                embedded: true
                 port: 24454
                 targetPort: 24454
               ingress:
