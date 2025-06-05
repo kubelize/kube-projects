@@ -53,6 +53,7 @@ spec:
             - https://cdn.modrinth.com/data/a8UoyV2h/versions/vc0LhdlS/bmm-paper-2.1.10.jar
             - https://github.com/LeBogoo/BluemapClaims/releases/download/v1.21.4-1.3/BluemapClaims-1.21.4-1.3.jar
             - https://cdn.modrinth.com/data/gyVHmXm2/versions/9DByHGT5/PickupBuddingAmethyst-1.21-2.jar
+            - https://hangarcdn.papermc.io/plugins/henkelmax/SimpleVoiceChat/versions/bukkit-2.5.30/PAPER/voicechat-bukkit-2.5.30.jar
           externalTrafficPolicy: Local
           extraPorts:
             - name: plan
@@ -90,6 +91,17 @@ spec:
                   - secretName: map-tls
                     hosts:
                       - map.icykhaye.xyz
+            - name: voip
+              containerPort: 24454
+              protocol: UDP
+              service:
+                enabled: true
+                embedded: true
+                port: 24454
+                targetPort: 24454
+              ingress:
+                ingressClassName: nginx
+                enabled: false
         resources:
           requests:
             cpu: 2000m
