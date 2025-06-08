@@ -3,5 +3,5 @@ kind: Kustomization
 resources: 
 
   - ../../../addons/argocd/repositories/
-  - ../../../customers/a01/
+  - ../../../tenants/a01/
 

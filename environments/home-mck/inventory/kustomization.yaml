@@ -4,7 +4,7 @@ resources:
 
 - ../../../addons/argocd/repositories/
 - ../../../apps/stable/gameservers/web-rcon/
-- ../../../customers/b01a/
-- ../../../customers/b01/
-- ../../../customers/b02/
+- ../../../tenants/b01a/
+- ../../../tenants/b01/
+- ../../../tenants/b02/
 
