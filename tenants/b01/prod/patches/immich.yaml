@@ -5,13 +5,13 @@
   path: "/spec/sources/0/helm"
   value:
     valueFiles:
-      - $values/customers/b01/prod/values/postgresql/values.yaml
+      - $values/tenants/b01/prod/values/postgresql/values.yaml
 - op: add
   path: "/spec/sources/1/helm"
   value:
     valueFiles:
-      - $values/customers/b01/prod/values/immich/values.yaml
+      - $values/tenants/b01/prod/values/immich/values.yaml
 - op: replace
   path: "/spec/sources/2/path"
-  value: customers/b01/prod/deploy/immich/
+  value: tenants/b01/prod/deploy/immich/
 

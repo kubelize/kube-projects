@@ -5,5 +5,5 @@
   path: "/spec/sources/0"
   value:
     repoURL: https://github.com/kubelize/kube-projects
-    path: customers/a01/test/deploy/linkstack/
+    path: tenants/a01/test/deploy/linkstack/
     targetRevision: HEAD
