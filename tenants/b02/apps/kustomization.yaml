@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
 
   - prod/
-#  - test/
+  - test/
 
 namePrefix: "b02-"
