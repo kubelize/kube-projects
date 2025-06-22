@@ -18,8 +18,8 @@ spec:
       valuesObject:
         serviceAnnotations:
           "lbipam.cilium.io/ips": "192.168.1.237"
-        extraEnv:
-          MC_HEALTH_EXTRA_ARGS: "--use-proxy"
+        # extraEnv:
+        #   MC_HEALTH_EXTRA_ARGS: "--use-proxy"
         persistence:
           dataDir:
             Size: 100Gi
