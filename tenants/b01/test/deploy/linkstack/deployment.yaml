@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkstack
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: linkstack
+  template:
+    metadata:
+      labels:
+        app: linkstack
+    spec:
+      initContainers:
+        - name: copy-htdocs
+          image: linkstackorg/linkstack:latest
+          command:
+            - /bin/ash
+            - -c
+            - |
+              apk add --no-cache rsync && sleep 1 && \
+              if [ -z "$(ls -A /htdocs_provisioning | grep -v '^lost+found$')" ]; then
+                rsync -a --exclude='lost+found' /htdocs/ /htdocs_provisioning/ && \
+                chown -R apache:apache /htdocs_provisioning && \
+                chown -R apache:apache /htdocs && \
+                find /htdocs -type d -print0 | xargs -0 chmod 0755 && \
+                find /htdocs -type f -print0 | xargs -0 chmod 0644 && \
+                echo "/htdocs was empty. Files copied to /htdocs_provisioning."
+              else
+                echo "/htdocs_provisioning is not empty. No files copied."
+              fi
+          volumeMounts:
+            - name: linkstack-storage
+              mountPath: /htdocs_provisioning
+      containers:
+        - name: linkstack
+          image: kubelize/linkstack:0.1.2
+          # command: ["/bin/ash", "-c", "sleep 3600"]
+          ports:
+            - name: http
+              containerPort: 80
+          # securityContext:
+          #   runAsUser: 100
+          #   runAsGroup: 101
+          #   fsGroup: 101
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+              httpHeaders:
+              - name: User-Agent
+                value: LivenessProbe
+            initialDelaySeconds: 1
+            periodSeconds: 5
+            failureThreshold: 2
+            timeoutSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+              httpHeaders:
+              - name: User-Agent
+                value: ReadinessProbe
+            initialDelaySeconds: 1
+            periodSeconds: 5
+            failureThreshold: 2
+            timeoutSeconds: 3
+          env:
+            - name: TZ
+              value: "Europe/Berlin"
+            - name: HTTP_SERVER_NAME
+              value: "mckensy.xyz"
+            - name: LOG_LEVEL
+              value: "info"
+            - name: PHP_MEMORY_LIMIT
+              value: "512M"
+            - name: UPLOAD_MAX_FILESIZE
+              value: "16M"
+          volumeMounts:
+            - name: linkstack-storage
+              mountPath: /htdocs
+      volumes:
+        - name: linkstack-storage
+          persistentVolumeClaim:
+            claimName: linkstack-pvc

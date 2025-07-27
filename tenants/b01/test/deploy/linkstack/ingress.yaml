@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: linkstack
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod-nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: mckensy.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: linkstack
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - mckensy.xyz
+      secretName: linkstack-tls
