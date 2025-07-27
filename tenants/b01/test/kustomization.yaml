@@ -6,7 +6,7 @@ resources:
 nameSuffix: "-test"
 
 patches:
-#    - path: ./patches/linkstack.yaml
-#      target:
-#        kind: Application
-#        name: skeleton
+  - path: ./patches/linkstack.yaml
+    target:
+      kind: Application
+      name: skeleton
