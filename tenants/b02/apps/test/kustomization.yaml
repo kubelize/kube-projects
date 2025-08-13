@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - ../../../../apps/stable/gameservers/minecraft/paper/
 #  - ../../../apps/stable/skeleton/
+  - ../../../../apps/stable/linkstack/
 
   - deploy/icys-realm/networkpolicy.yaml
 
@@ -17,3 +18,7 @@ patches:
 #      target:
 #        kind: Application
 #        name: skeleton
+  - path: ./patches/linkstack.yaml
+    target:
+      kind: Application
+      name: linkstack
