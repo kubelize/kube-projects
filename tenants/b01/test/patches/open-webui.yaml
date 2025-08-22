@@ -1,7 +1,7 @@
 - op: add
   path: "/spec/destination/namespace"
   value: b01-open-webui
-- op: replace
+- op: add
   path: "/spec/sources/0"
   value:
     valueFiles:
