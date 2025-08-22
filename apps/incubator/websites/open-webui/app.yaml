@@ -20,6 +20,6 @@ spec:
       chart: open-webui
       helm:
         valuesObject:
-          persisitence:
+          persistence:
             enabled: true
             size: 20Gi
