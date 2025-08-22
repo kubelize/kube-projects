@@ -4,5 +4,6 @@
 - op: add
   path: "/spec/sources/0"
   value:
-    valueFiles:
-      - tenants/b01/test/deploy/open-webui/
+    repoURL: https://github.com/kubelize/kube-projects
+    path: tenants/b01/test/deploy/open-webui/
+    targetRevision: HEAD
