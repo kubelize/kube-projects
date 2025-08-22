@@ -5,4 +5,4 @@
   path: "/spec/sources/0"
   value:
     valueFiles:
-      - $values/tenants/b01/test/values/open-webui.yaml
+      - tenants/b01/test/deploy/open-webui/
