@@ -18,3 +18,8 @@ spec:
     - repoURL: https://helm.openwebui.com/
       targetRevision: 7.3.0
       chart: open-webui
+      helm:
+        valuesObject:
+          persisitence:
+            enabled: true
+            size: 20Gi
