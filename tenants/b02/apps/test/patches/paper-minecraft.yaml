@@ -31,19 +31,19 @@ spec:
           memory: "6144M"
           jvmXXOpts: "-XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true"
           pluginUrls:
-            - https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.3.2/PAPER/ViaVersion-5.3.2.jar
-            - https://hangarcdn.papermc.io/plugins/pop4959/Chunky/versions/1.4.36/PAPER/Chunky-Bukkit-1.4.36.jar
+            - https://hangarcdn.papermc.io/plugins/ViaVersion/ViaVersion/versions/5.4.2/PAPER/ViaVersion-5.4.2.jar
+            - https://hangarcdn.papermc.io/plugins/pop4959/Chunky/versions/1.4.40/PAPER/Chunky-Bukkit-1.4.40.jar
             - https://hangarcdn.papermc.io/plugins/GriefPrevention/GriefPrevention/versions/16.18.4/PAPER/GriefPrevention%2016.18.4.jar
-            - https://mediafilez.forgecdn.net/files/6375/57/FishRewards-1.6.3.jar
-            - https://hangarcdn.papermc.io/plugins/Gecolay/GSit/versions/2.3.2/PAPER/GSit-2.3.2.jar
+            - https://mediafilez.forgecdn.net/files/6783/360/FishRewards-1.6.6.jar
+            - https://hangarcdn.papermc.io/plugins/Gecolay/GSit/versions/2.4.3/PAPER/GSit-2.4.3.jar
             - https://hangarcdn.papermc.io/plugins/NichoGX/DiscordRoleSync/versions/2.3.2/PAPER/discord_role_sync-2.3.2.jar
             - https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar
             - https://cdn.modrinth.com/data/s86X568j/versions/asaBBItO/ChunkyBorder-Bukkit-1.2.23.jar
-            - https://hangarcdn.papermc.io/plugins/Archy/AuraSkills/versions/2.3.3/PAPER/AuraSkills-2.3.3.jar
-            - https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.8.17/DecentHolograms-2.8.17.jar
+            - https://hangarcdn.papermc.io/plugins/Archy/AuraSkills/versions/2.3.7/PAPER/AuraSkills-2.3.7.jar
+            - https://github.com/DecentSoftware-eu/DecentHolograms/releases/download/2.9.7/DecentHolograms-2.9.7.jar
             - https://github.com/plan-player-analytics/Plan/releases/download/5.6.2965/Plan-5.6-build-2965.jar
-            - https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
-            - https://download.luckperms.net/1593/bukkit/loader/LuckPerms-Bukkit-5.5.8.jar
+            - https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsX-2.21.2.jar
+            - https://download.luckperms.net/1596/bukkit/loader/LuckPerms-Bukkit-5.5.11.jar
           externalTrafficPolicy: Local
           extraPorts:
             - name: plan
