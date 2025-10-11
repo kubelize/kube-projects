@@ -25,6 +25,7 @@ spec:
             Size: 100Gi
         minecraftServer:
           motd: "§b❣ §f§oLet's have an §b§oice §f§otime together §b❣ §f§n§oS§b§n§ot§f§n§oa§b§n§oy§f§n§o f§b§n§or§f§n§oo§b§n§os§f§n§ot§b§n§oy§b ☺"
+          version: "1.21.8"
           maxTickTime: 60000
           difficulty: normal
           levelSeed: "7830518263619659759"
